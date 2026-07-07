@@ -147,9 +147,10 @@
       <label class="sel fac">Field office <select id="offSel"><option value="">Any office</option></select></label>
       <label class="sel fac">Size <select id="tierSel">
         <option value="">Any size</option>
-        <option value="pop">Reports population</option>
-        <option value="h72">Holds &gt;72h</option>
-        <option value="roster">Roster only (no population)</option>
+        <option value="500">500+ held now</option>
+        <option value="50">50–500 held now</option>
+        <option value="u50">under 50 held now</option>
+        <option value="none">no current count</option>
       </select></label>
       <label class="sel crt">Court <select id="statusSel">
         <option value="">Any status</option>
@@ -300,9 +301,11 @@ function matches(e){
   if(fOffice&&!((e.k==='f'&&e.aor===fOffice)||(e.k==='o'&&e.code===fOffice)))return false;
   if(fTier){
     if(e.k!=='f')return false;
-    if(fTier==='pop'&&e.adp==null)return false;
-    if(fTier==='h72'&&e.h72!=='yes')return false;
-    if(fTier==='roster'&&e.adp!=null)return false;
+    const a=e.adp;
+    if(fTier==='500'&&!(a!=null&&a>=500))return false;
+    if(fTier==='50'&&!(a!=null&&a>=50&&a<500))return false;
+    if(fTier==='u50'&&!(a!=null&&a<50))return false;
+    if(fTier==='none'&&a!=null)return false;
   }
   if(fStatus){
     if(e.k!=='c')return false;
