@@ -4,7 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Interactive views of the U.S. immigration detention system — maps, rankings, and derived measures, each panel sourced and dated.">
+<meta name="description" content="Interactive views of the U.S. immigration detention system — maps, coverage, and derived measures, each panel sourced and dated.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Detention Registry">
+<meta property="og:title" content="Detention Registry — ways to see the data">
+<meta property="og:description" content="Twelve sourced views of the U.S. immigration detention system: county maps, field-office coverage, and the few facilities that hold almost everyone.">
+<meta property="og:url" content="https://detentionsystemdata.github.io/visual/">
+<meta property="og:image" content="https://detentionsystemdata.github.io/visual/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Detention Registry — ways to see the data">
+<meta name="twitter:description" content="County maps, field-office coverage, and the few facilities that hold almost everyone.">
+<meta name="twitter:image" content="https://detentionsystemdata.github.io/visual/og.png">
 <title>Detention registry — ways to see the data</title>
 <style>
   :root{
@@ -122,7 +134,7 @@
   .county.empty{fill:var(--land)}
   .county:hover{stroke:var(--ink);stroke-width:1.1}
   .stateoutline{fill:none;stroke:var(--axis);stroke-width:.7;stroke-linejoin:round;pointer-events:none}
-  .courtpt{fill:var(--s6);fill-opacity:.85;stroke:var(--surface);stroke-width:1;cursor:pointer}
+  .courtpt{fill-opacity:.9;stroke:var(--surface);stroke-width:1.2;cursor:pointer}
   .courtpt:hover{fill-opacity:1;stroke:var(--ink)}
   .hqpt{fill:var(--s5);stroke:var(--surface);stroke-width:1.2;cursor:pointer}
   .aor-cap{font-size:12.5px;color:var(--ink-2);margin-bottom:12px;min-height:18px}
@@ -182,13 +194,13 @@
   .tiercard .l{margin-top:6px;font:600 11px/1.35 ui-monospace,monospace;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .tiercard .d{margin-top:7px;font-size:12px;color:var(--ink-2);line-height:1.4}
 
-  .srow{display:grid;grid-template-columns:150px 1fr 214px;gap:12px;align-items:center;padding:6px 2px}
+  .srow{display:grid;grid-template-columns:150px 1fr 56px 132px;gap:12px;align-items:center;padding:6px 2px}
   .srow .nm{font-size:12.5px;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .srow .barwrap{height:14px;background:var(--surface-2);border-radius:4px;overflow:hidden;border:1px solid var(--border-2)}
   .srow .barf{display:block;height:100%;border-radius:0 4px 4px 0;transition:width .5s cubic-bezier(.2,.7,.3,1)}
-  .srow .val{font:500 11.5px ui-monospace,monospace;color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
-  .srow .val b{color:var(--ink-2)}
-  @media(max-width:640px){.srow{grid-template-columns:110px 1fr}.srow .val{display:none}}
+  .srow .pctv{font:600 12px ui-monospace,monospace;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right}
+  .srow .detv{font:500 11.5px ui-monospace,monospace;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+  @media(max-width:640px){.srow{grid-template-columns:110px 1fr 50px}.srow .detv{display:none}}
   .listhead{display:flex;justify-content:space-between;align-items:baseline;margin:24px 0 8px;
     font:600 12px/1 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
   .listhead #list-note{color:var(--accent);text-transform:none;letter-spacing:0}
@@ -719,16 +731,16 @@ function mountCourts(){
   ordered.forEach(c=>{
     if(c.ll[0]<-125||c.ll[0]>-66||c.ll[1]<24||c.ll[1]>50)return; // continental only
     const[x,y]=P.proj(c.ll[0],c.ll[1]);
-    const dot=svgEl('circle',{cx:x,cy:y,r:c.detained?4.2:3.4,class:'courtpt',
-      fill:c.detained?'var(--s6)':'var(--muted)','fill-opacity':c.detained?.92:.6});
+    const dot=svgEl('circle',{cx:x,cy:y,r:c.detained?4.6:3.8,class:'courtpt'});
+    dot.style.fill=c.detained?'var(--crit)':'var(--s1)'; // inline style so CSS var resolves & wins
     const rel=c.detained?'inside / beside a detention facility':'community court';
     dot.addEventListener('mousemove',e=>showTip('<div class="tt">'+c.name+'</div><div class="tv">'+c.st+' &middot; '+rel+'</div>',e.clientX,e.clientY));
     dot.addEventListener('mouseleave',hideTip);svg.append(dot);
   });
   node.append(svg);
   const lg=$('#court-leg');if(lg){lg.innerHTML='';
-    [['var(--s6)','Detained-docket (co-located with a facility)',DATA.coloc.courtsDetained],
-     ['var(--muted)','Community court',DATA.coloc.courtsTotal-DATA.coloc.courtsDetained]].forEach(([col,lab,n])=>{
+    [['var(--crit)','Detained-docket (inside / beside a facility)',DATA.coloc.courtsDetained],
+     ['var(--s1)','Community court',DATA.coloc.courtsTotal-DATA.coloc.courtsDetained]].forEach(([col,lab,n])=>{
       const row=el('div','lg');const i=el('i');i.style.cssText='width:11px;height:11px;border-radius:50%;background:'+col;
       row.append(i,el('span','',lab),el('span','tn',fmt(n)));lg.append(row);});
   }
@@ -951,7 +963,8 @@ function mountScale(node){
     const pct=Math.min(d.share,100);
     row.innerHTML='<span class="nm">'+d.nm+'</span>'+
       '<span class="barwrap"><span class="barf" style="width:'+pct+'%;background:'+colFor(d.share)+'"></span></span>'+
-      '<span class="val"><b>'+d.share+'%</b> &middot; '+fmt(d.adp)+' of '+fmt(d.pop)+'</span>';
+      '<span class="pctv">'+d.share+'%</span>'+
+      '<span class="detv">'+fmt(d.adp)+' of '+fmt(d.pop)+'</span>';
     list.append(row);
   });
 }
