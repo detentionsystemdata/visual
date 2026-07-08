@@ -38,7 +38,7 @@
   a{color:var(--accent)}
 
   header.top{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--plane) 86%,transparent);backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--border)}
-  .top-in{max-width:1000px;margin:0 auto;padding:12px 22px;display:flex;align-items:center;gap:14px}
+  .top-in{max-width:1120px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;gap:14px}
   .brand{display:flex;align-items:center;gap:10px;min-width:0}
   .brand .sq{width:11px;height:11px;background:var(--accent);border-radius:2px;flex:none}
   .brand b{font-weight:680;letter-spacing:-.02em;font-size:15px;white-space:nowrap}
@@ -51,17 +51,17 @@
   .tgl{font:600 12px/1 ui-monospace,monospace;color:var(--ink-2);background:var(--surface);border:1px solid var(--border);border-radius:7px;padding:8px 11px;cursor:pointer;letter-spacing:.03em}
   .tgl:hover{border-color:var(--axis)}
 
-  main{max-width:1000px;margin:0 auto;padding:0 22px 90px}
+  main{max-width:1120px;margin:0 auto;padding:0 24px 90px}
   .hero{padding:44px 0 26px}
   .eyebrow{font:600 11px/1 ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
   h1{font-size:clamp(28px,4.6vw,44px);line-height:1.03;letter-spacing:-.035em;font-weight:720;margin:14px 0 0;text-wrap:balance;max-width:18ch}
-  .lede{margin:16px 0 0;max-width:64ch;color:var(--ink-2);font-size:16px}
+  .lede{margin:16px 0 0;max-width:52rem;color:var(--ink-2);font-size:16px}
 
-  /* controls */
-  .controls{position:sticky;top:51px;z-index:20;background:color-mix(in srgb,var(--plane) 97%,transparent);backdrop-filter:blur(8px);padding:14px 0 14px;margin-bottom:8px;border-bottom:1px solid var(--border);box-shadow:0 10px 16px -14px rgba(17,19,22,.5)}
-  @media(prefers-color-scheme:dark){.controls{box-shadow:0 10px 20px -14px rgba(0,0,0,.85)}}
-  :root[data-theme="dark"] .controls{box-shadow:0 10px 20px -14px rgba(0,0,0,.85)}
-  :root[data-theme="light"] .controls{box-shadow:0 10px 16px -14px rgba(17,19,22,.5)}
+  /* controls — solid so content scrolls cleanly beneath; separation shows only when pinned */
+  .controls{position:sticky;top:50px;z-index:20;background:var(--plane);padding:14px 0 14px;border-bottom:1px solid transparent;transition:border-color .15s,box-shadow .15s}
+  .controls.stuck{border-bottom-color:var(--border);box-shadow:0 8px 18px -12px rgba(17,19,22,.35)}
+  :root[data-theme="dark"] .controls.stuck{box-shadow:0 8px 20px -12px rgba(0,0,0,.7)}
+  @media(prefers-color-scheme:dark){.controls.stuck{box-shadow:0 8px 20px -12px rgba(0,0,0,.7)}}
   #q{width:100%;padding:12px 14px;font-size:15px;border:1px solid var(--border);border-radius:10px;background:var(--surface);color:var(--ink)}
   #q:focus{outline:none;border-color:var(--accent)}
   .filterrow{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;margin-top:12px}
@@ -129,7 +129,7 @@
   .about h2{font:600 12px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px}
   .about .s{font-size:13.5px;color:var(--ink-2);margin:8px 0;line-height:1.55}
   .about .s b{color:var(--ink)}
-  footer{max-width:1000px;margin:0 auto;padding:30px 22px 70px;color:var(--muted);font-size:12.5px}
+  footer{max-width:1120px;margin:0 auto;padding:30px 24px 70px;color:var(--muted);font-size:12.5px}
   footer code{font-family:ui-monospace,monospace;color:var(--ink-2)}
   @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -151,7 +151,7 @@
   <div class="hero">
     <div class="eyebrow">Directory &middot; release <span id="rel" class="mono"></span></div>
     <h1>The detention system, entry by entry.</h1>
-    <p class="lede">Every facility, immigration court, and ICE field office in the Detention System Data registry. Filter and search, then read each entry with its sources. Values are shown as our data collection process found them at the source.</p>
+    <p class="lede">Every facility, immigration court, and ICE field office in the registry &mdash; filter and search, then read each entry with its facts and its sources. Values you see are published as-is; each entry's sources are listed and linked at its foot.</p>
   </div>
 
   <div class="controls">
@@ -175,11 +175,11 @@
   <div class="about">
     <h2>About the sources</h2>
     <div id="aboutsrc"></div>
-    <p class="s" style="color:var(--muted);margin-top:14px">Values are published verbatim from the sources above; where a source's terms don't permit republication, you'll see a link out instead. Derived measures used elsewhere on this site (co-location hints, source-agreement signal) are derivations, not source facts.</p>
+    <p class="s" style="color:var(--muted);margin-top:14px">Values are published verbatim from the sources above; where a source's terms don't permit republication, the entry links out instead. Derived measures used elsewhere on this site (co-location hints, source-agreement signal) are our derivations, not source facts.</p>
   </div>
 
   <footer>
-    <p>Release <code id="footrel"></code>. Public-good registry of the U.S. immigration detention system compiled from publicly available data. Non-editorial, per-entry provenance. Self-contained page. No external requests, no analytics.</p>
+    <p>Release <code id="footrel"></code>. Public-good registry of the U.S. immigration detention system &mdash; facts only, per-entry provenance. Self-contained page: no external requests, no analytics.</p>
   </footer>
 </main>
 
@@ -418,6 +418,11 @@ $('#tgl').addEventListener('click',()=>{const cur=document.documentElement.getAt
   const next=isDark?'light':'dark';
   document.documentElement.setAttribute('data-theme',next);
   try{localStorage.setItem('drtheme',next);}catch(e){}});
+
+/* separate the sticky filter bar only once it's actually pinned */
+const controlsEl=$('.controls');
+const onScroll=()=>controlsEl.classList.toggle('stuck',controlsEl.getBoundingClientRect().top<=51);
+addEventListener('scroll',onScroll,{passive:true});onScroll();
 
 render();
 </script>
