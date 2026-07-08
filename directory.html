@@ -58,7 +58,10 @@
   .lede{margin:16px 0 0;max-width:52rem;color:var(--ink-2);font-size:16px}
 
   /* controls — solid so content scrolls cleanly beneath; separation shows only when pinned */
-  .controls{position:sticky;top:50px;z-index:20;background:var(--plane);padding:14px 0 14px;border-bottom:1px solid transparent;transition:border-color .15s,box-shadow .15s}
+  .controls{position:sticky;top:50px;z-index:20;background:var(--plane);padding:14px 20px;border-bottom:1px solid transparent;transition:border-color .15s,box-shadow .15s}
+  /* facet rows bleed to the right edge so the horizontal-scroll affordance stays */
+  #facets{margin-right:-20px;padding-right:0}
+  #facets .fscroll{padding-right:20px}
   .controls.stuck{border-bottom-color:var(--border);box-shadow:0 8px 18px -12px rgba(17,19,22,.35)}
   :root[data-theme="dark"] .controls.stuck{box-shadow:0 8px 20px -12px rgba(0,0,0,.7)}
   @media(prefers-color-scheme:dark){.controls.stuck{box-shadow:0 8px 20px -12px rgba(0,0,0,.7)}}
@@ -228,8 +231,12 @@ function agrGroup(ag){ag=(ag||'').toUpperCase();
   if(ag==='BOP')return 'federal prison';
   return 'other / unknown';}
 function sizeGroup(e){if(e.adp==null)return 'no current count';
-  if(e.adp>=500)return '500+ held now';if(e.adp>=50)return '50–500 held now';return 'under 50 held now';}
-const SIZE_ORDER=['500+ held now','50–500 held now','under 50 held now','no current count'];
+  if(e.adp>=2000)return '2000+ held now';
+  if(e.adp>=1000)return '1000–2000 held now';
+  if(e.adp>=500)return '500–1000 held now';
+  if(e.adp>=50)return '50–500 held now';
+  return 'under 50 held now';}
+const SIZE_ORDER=['2000+ held now','1000–2000 held now','500–1000 held now','50–500 held now','under 50 held now','no current count'];
 // facet registry: key -> {label, kinds, get(e)->value|null}
 const FACETS={
   office:{label:'Field office',kinds:['f','all'],get:e=>e.k==='f'&&e.aor?(D.offmap[e.aor]||e.aor):null},
@@ -270,20 +277,30 @@ Object.entries(D.srcinfo).forEach(([code,s])=>{
 });
 
 /* card builder */
-// footnote number for a field's source, paired with the numbered list at the foot.
-// Only shown when an entry has more than one source (single-source entries read clean).
+// The footnote list is the sources actually cited by the DISPLAYED values, in display
+// order — so every number in the foot has a matching superscript above (and vice versa).
+let curUsed=[];
+function usedSources(e){
+  const order=[],seen=new Set(),push=c=>{if(c&&!seen.has(c)){seen.add(c);order.push(c);}};
+  if(e.k==='c'){push(e.statusSrc);push(e.addrSrc);}
+  else if(e.k==='o'){push(e.codeSrc);push(e.addrSrc);push(e.phoneSrc);}
+  else{push(e.typeSrc);push(e.addrSrc);if(e.adp!=null)push(e.adpSrc);else if(e.cap!=null)push(e.capSrc);if(e.court)push(e.courtSrc);}
+  return order;
+}
+// superscript for a value's source; blank on single-source entries (they read clean)
 function ref(e,code){
-  if(!code||e.src.length<2)return '';
-  const i=e.src.findIndex(s=>s.s===code);
+  if(!code||curUsed.length<2)return '';
+  const i=curUsed.indexOf(code);
   return i<0?'':'<sup class="fnref">'+(i+1)+'</sup>';
 }
+function urlForCode(e,code){const s=(e.src||[]).find(x=>x.s===code);return (s&&s.u)||(D.srcinfo[code]&&D.srcinfo[code].home)||'#';}
 function srcFoot(e){
   const wrap=el('div','sources');
-  const multi=e.src.length>1;
+  const multi=curUsed.length>1;
   wrap.append(el('div','sh',multi?'Sources':'Source'));
-  e.src.forEach((s,i)=>{
-    const info=D.srcinfo[s.s]||{name:s.s,asOf:'',home:'#',lic:'green'};
-    const url=s.u||info.home;
+  curUsed.forEach((code,i)=>{
+    const info=D.srcinfo[code]||{name:code,asOf:'',home:'#',lic:'green'};
+    const url=urlForCode(e,code);
     const line=el('div','srcline');
     line.innerHTML=(multi?'<sup>'+(i+1)+'</sup>':'')+esc(info.name)+
       (info.asOf?' &middot; as of '+esc(info.asOf):'')+
@@ -296,6 +313,7 @@ function srcFoot(e){
 function fact(lab,val){const d=el('div','fact');d.innerHTML=(lab?'<span class="lab">'+esc(lab)+'</span>':'')+val;return d;}
 
 function buildCard(e){
+  curUsed=usedSources(e);
   const card=el('div','card');
   const head=el('div','chead');
   head.append(el('div','cname',e.nm));
@@ -332,7 +350,7 @@ function buildCard(e){
     if(e.court)facts.append(fact('Co-located court',esc(e.court)+ref(e,e.courtSrc)));
   }
   card.append(facts);
-  if(e.src&&e.src.length)card.append(srcFoot(e));
+  if(curUsed.length)card.append(srcFoot(e));
   return card;
 }
 
