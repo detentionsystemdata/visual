@@ -77,6 +77,21 @@
   .clearf:hover{background:color-mix(in srgb,var(--accent) 10%,transparent)}
   .count{margin-left:auto;font:600 12.5px/1 ui-monospace,monospace;color:var(--muted)}
   @media(max-width:640px){.count{margin-left:0}}
+  /* faceted filters — one scrolling row per facet, chips with counts */
+  #facets{margin-top:8px;display:flex;flex-direction:column;gap:5px}
+  .facet{display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center}
+  .facet .flab{font:600 10px/1.2 ui-monospace,monospace;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);text-align:right}
+  .facet .fscroll{display:flex;gap:5px;overflow-x:auto;padding:2px 1px;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+  .facet .fscroll::-webkit-scrollbar{height:5px}
+  .facet .fscroll::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px}
+  .fchip{flex:none;cursor:pointer;border:1px solid var(--border);background:var(--surface);border-radius:999px;
+    padding:4px 10px;font:600 11.5px/1 ui-monospace,monospace;color:var(--ink-2);white-space:nowrap;user-select:none}
+  .fchip:hover{border-color:var(--axis);color:var(--ink)}
+  .fchip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+  .fchip .fn{opacity:.55;margin-left:5px;font-weight:500}
+  .fchip[aria-pressed="true"] .fn{opacity:.85}
+  .fchip.zero{opacity:.32;pointer-events:none}
+  @media(max-width:640px){.facet{grid-template-columns:74px 1fr}.facet .flab{font-size:9px}}
 
   /* cards */
   .list{margin-top:20px;display:flex;flex-direction:column;gap:12px}
@@ -143,24 +158,7 @@
     <input type="search" id="q" placeholder="Search a name, county, or city…" autocomplete="off">
     <div class="filterrow">
       <div class="chips" id="kindchips" role="group" aria-label="type"></div>
-    </div>
-    <div class="filterrow">
       <label class="sel">State <select id="stateSel"></select></label>
-      <label class="sel fac">Type <select id="typeSel"><option value="">Any type</option></select></label>
-      <label class="sel fac">Field office <select id="offSel"><option value="">Any office</option></select></label>
-      <label class="sel fac">Size <select id="tierSel">
-        <option value="">Any size</option>
-        <option value="500">500+ held now</option>
-        <option value="50">50–500 held now</option>
-        <option value="u50">under 50 held now</option>
-        <option value="none">no current count</option>
-      </select></label>
-      <label class="sel crt">Court <select id="statusSel">
-        <option value="">Any status</option>
-        <option value="open">Open</option>
-        <option value="closed">Closed</option>
-        <option value="det">Detained-docket</option>
-      </select></label>
       <label class="sel">Sort <select id="sortSel">
         <option value="name">Name (A–Z)</option>
         <option value="adp">Population (high→low)</option>
@@ -168,6 +166,7 @@
       <button class="clearf" id="clearf" hidden>Clear</button>
       <span class="count" id="count"></span>
     </div>
+    <div id="facets"></div>
   </div>
 
   <div class="list" id="list"></div>
@@ -199,22 +198,66 @@ const KLAB={f:'Facility',c:'Court',o:'Field office'};
 const states=[...new Set(D.ents.flatMap(e=>e.st||[]))].sort();
 const stSel=$('#stateSel');const allOpt=el('option','','All states');allOpt.value='';stSel.append(allOpt);
 states.forEach(s=>{const o=el('option','',s);o.value=s;stSel.append(o);});
-/* contract-type options */
-const typeSel=$('#typeSel');
-(D.typeopts||[]).forEach(([code,label])=>{const o=el('option','',label);o.value=code;typeSel.append(o);});
-/* field-office options (by name) */
-const offSel=$('#offSel');
-Object.entries(D.offmap).sort((a,b)=>a[1].localeCompare(b[1])).forEach(([code,name])=>{
-  const o=el('option','',name+' ('+code+')');o.value=code;offSel.append(o);});
 
 /* kind chips */
 const kc=$('#kindchips');
 let fKind='all', fState='', fSort='name', q='';
 function chip(k,label,n){const b=el('button','chip');b.dataset.k=k;b.setAttribute('aria-pressed',k===fKind);
   b.innerHTML=esc(label)+' <span class="n">'+n+'</span>';
-  b.addEventListener('click',()=>{fKind=k;kc.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));render();});return b;}
+  b.addEventListener('click',()=>{setKind(k);});return b;}
 kc.append(chip('all','All',D.ents.length));
 ['f','c','o'].forEach(k=>kc.append(chip(k,KINDS[k],D.ents.filter(e=>e.k===k).length)));
+
+/* ---- faceted filters ---- */
+// value extractors (mirror the internal review page's groupings)
+function fnGroup(fn){fn=(fn||'').toUpperCase();
+  if(!fn)return 'standard detention';
+  if(fn==='HOLD')return 'hold room';
+  if(fn==='HOSPITAL'||fn==='HEALTH')return 'hospital / health';
+  if(fn==='JUVENILE')return 'juvenile';
+  if(fn==='FAMILY')return 'family';
+  if(fn==='STAGING')return 'staging';
+  if(['TRANSPORT','AIRPORT','POE','BPS'].includes(fn))return 'transport / border';
+  return 'other';}
+function agrGroup(ag){ag=(ag||'').toUpperCase();
+  if(ag==='SPC')return 'ICE-owned';
+  if(ag==='CDF'||ag==='USMS CDF')return 'private contract';
+  if(ag==='IGSA')return 'county/city jail';
+  if(ag==='DIGSA')return 'dedicated ICE (IGSA)';
+  if(ag==='USMS IGA')return 'via US Marshals';
+  if(ag==='BOP')return 'federal prison';
+  return 'other / unknown';}
+function sizeGroup(e){if(e.adp==null)return 'no current count';
+  if(e.adp>=500)return '500+ held now';if(e.adp>=50)return '50–500 held now';return 'under 50 held now';}
+const SIZE_ORDER=['500+ held now','50–500 held now','under 50 held now','no current count'];
+// facet registry: key -> {label, kinds, get(e)->value|null}
+const FACETS={
+  office:{label:'Field office',kinds:['f','all'],get:e=>e.k==='f'&&e.aor?(D.offmap[e.aor]||e.aor):null},
+  size:  {label:'People held',kinds:['f','all'],get:e=>e.k==='f'?sizeGroup(e):null,order:SIZE_ORDER},
+  kindf: {label:'What kind',kinds:['f','all'],get:e=>e.k==='f'?fnGroup(e.fn):null},
+  runs:  {label:'Who runs it',kinds:['f','all'],get:e=>e.k==='f'?agrGroup(e.ag):null},
+  status:{label:'Status',kinds:['c'],get:e=>e.k==='c'?(e.status==='OPEN'?'Open':'Closed'):null},
+  docket:{label:'Docket',kinds:['c'],get:e=>e.k==='c'?(e.det?'Detained-docket':'Community court'):null},
+};
+const sel={office:new Set(),size:new Set(),kindf:new Set(),runs:new Set(),status:new Set(),docket:new Set()};
+// stable option ordering per facet (by total count desc, or fixed order)
+const facetOptions={};
+for(const key in FACETS){
+  const f=FACETS[key];const tot={};
+  D.ents.forEach(e=>{const v=f.get(e);if(v!=null)tot[v]=(tot[v]||0)+1;});
+  let opts=Object.keys(tot);
+  if(f.order)opts.sort((a,b)=>f.order.indexOf(a)-f.order.indexOf(b));
+  else opts.sort((a,b)=>tot[b]-tot[a]);
+  facetOptions[key]=opts;
+}
+function facetKeysFor(kind){return Object.keys(FACETS).filter(k=>FACETS[k].kinds.includes(kind));}
+function setKind(k){
+  fKind=k;kc.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===k));
+  // clear facet selections not applicable to the new kind
+  const keep=new Set(facetKeysFor(k));
+  for(const key in sel)if(!keep.has(key))sel[key].clear();
+  render();
+}
 
 /* about sources */
 const ab=$('#aboutsrc');
@@ -296,25 +339,15 @@ function buildCard(e){
 /* filter + render */
 const listNode=$('#list'), moreBtn=$('#more'), countNode=$('#count');
 let filtered=[], shown=0;const PAGE=50;
-let fType='',fOffice='',fTier='',fStatus='';
-function matches(e){
+// matches, optionally skipping one facet (for faceted counts)
+function matches(e,skipFacet){
   if(fKind!=='all'&&e.k!==fKind)return false;
   if(fState&&!(e.st||[]).includes(fState))return false;
-  if(fType&&!(e.k==='f'&&e.ag===fType))return false;
-  if(fOffice&&!((e.k==='f'&&e.aor===fOffice)||(e.k==='o'&&e.code===fOffice)))return false;
-  if(fTier){
-    if(e.k!=='f')return false;
-    const a=e.adp;
-    if(fTier==='500'&&!(a!=null&&a>=500))return false;
-    if(fTier==='50'&&!(a!=null&&a>=50&&a<500))return false;
-    if(fTier==='u50'&&!(a!=null&&a<50))return false;
-    if(fTier==='none'&&a!=null)return false;
-  }
-  if(fStatus){
-    if(e.k!=='c')return false;
-    if(fStatus==='open'&&e.status!=='OPEN')return false;
-    if(fStatus==='closed'&&e.status==='OPEN')return false;
-    if(fStatus==='det'&&!e.det)return false;
+  for(const key in FACETS){
+    if(key===skipFacet)continue;
+    const s=sel[key];if(!s.size)continue;
+    const v=FACETS[key].get(e);
+    if(v==null||!s.has(v))return false;
   }
   if(q){const hay=(e.nm+' '+(e.co||[]).join(' ')+' '+(e.addr||'')+' '+(e.code||'')).toLowerCase();
     if(!hay.includes(q))return false;}
@@ -324,12 +357,41 @@ function sortEnts(a,b){
   if(fSort==='adp'){const av=a.adp==null?-1:a.adp,bv=b.adp==null?-1:b.adp;if(av!==bv)return bv-av;}
   return a.nm.localeCompare(b.nm);
 }
+// build the visible facet rows for the current kind, with live counts
+function buildFacets(){
+  const wrap=$('#facets');
+  const prev={};wrap.querySelectorAll('.facet').forEach(r=>{prev[r.dataset.key]=r.querySelector('.fscroll').scrollLeft;});
+  wrap.innerHTML='';
+  facetKeysFor(fKind).forEach(key=>{
+    const f=FACETS[key];
+    // live counts: entries passing all filters EXCEPT this facet
+    const base=D.ents.filter(e=>matches(e,key));
+    const cnt={};base.forEach(e=>{const v=f.get(e);if(v!=null)cnt[v]=(cnt[v]||0)+1;});
+    const row=el('div','facet');row.dataset.key=key;
+    row.append(el('div','flab',f.label));
+    const sc=el('div','fscroll');
+    facetOptions[key].forEach(v=>{
+      const n=cnt[v]||0, on=sel[key].has(v);
+      const b=el('button','fchip'+(n===0&&!on?' zero':''));
+      b.setAttribute('aria-pressed',on);
+      b.innerHTML=esc(v)+'<span class="fn">'+fmt(n)+'</span>';
+      b.addEventListener('click',()=>{on?sel[key].delete(v):sel[key].add(v);render();});
+      sc.append(b);
+    });
+    row.append(sc);wrap.append(row);
+    if(prev[key]!=null)sc.scrollLeft=prev[key];
+  });
+}
+function anyActive(){
+  if(fKind!=='all'||fState||q)return true;
+  for(const k in sel)if(sel[k].size)return true;
+  return false;
+}
 function render(){
   fState=stSel.value;fSort=$('#sortSel').value;q=$('#q').value.trim().toLowerCase();
-  fType=typeSel.value;fOffice=offSel.value;fTier=$('#tierSel').value;fStatus=$('#statusSel').value;
-  const anyFilter=fKind!=='all'||fState||fType||fOffice||fTier||fStatus||q;
-  $('#clearf').hidden=!anyFilter;
-  filtered=D.ents.filter(matches).sort(sortEnts);
+  $('#clearf').hidden=!anyActive();
+  buildFacets();
+  filtered=D.ents.filter(e=>matches(e)).sort(sortEnts);
   listNode.innerHTML='';shown=0;
   countNode.textContent=fmt(filtered.length)+' '+(filtered.length===1?'entry':'entries');
   if(!filtered.length){listNode.append(el('div','empty','No entries match — try clearing a filter.'));moreBtn.hidden=true;return;}
@@ -345,11 +407,11 @@ function paint(){
 }
 moreBtn.addEventListener('click',paint);
 $('#q').addEventListener('input',render);
-['#stateSel','#typeSel','#offSel','#tierSel','#statusSel','#sortSel'].forEach(s=>$(s).addEventListener('change',render));
+stSel.addEventListener('change',render);
+$('#sortSel').addEventListener('change',render);
 $('#clearf').addEventListener('click',()=>{
-  fKind='all';kc.querySelectorAll('.chip').forEach(x=>x.setAttribute('aria-pressed',x.dataset.k==='all'));
-  ['#stateSel','#typeSel','#offSel','#tierSel','#statusSel'].forEach(s=>$(s).value='');
-  $('#q').value='';$('#sortSel').value='name';render();});
+  setKind('all');stSel.value='';$('#q').value='';$('#sortSel').value='name';
+  for(const k in sel)sel[k].clear();render();});
 
 $('#tgl').addEventListener('click',()=>{const cur=document.documentElement.getAttribute('data-theme');
   const isDark=cur?cur==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
