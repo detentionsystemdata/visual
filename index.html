@@ -257,7 +257,7 @@
     <div class="brand"><span class="sq"></span><a href="./"><b>Detention Registry</b></a></div>
     <nav class="jump">
       <a href="./" class="here">Overview</a>
-      <a href="directory.html">Directory</a>
+      <a href="directory/">Directory</a>
     </nav>
     <div class="spacer"></div>
     <button class="tgl" id="tgl" aria-label="Toggle light or dark theme">◐ THEME</button>
@@ -269,11 +269,12 @@
 
 <main>
   <div class="hero">
-    <div class="eyebrow">Visualization swatch &middot; release <span id="rel" class="mono"></span></div>
+    <div class="eyebrow">Visualization swatch &middot; Detention System Data Release <span id="rel" class="mono"></span></div>
     <h1>Ways to see the detention system.</h1>
     <p class="lede">The same public registry, read many ways &mdash; county maps, a schematic state grid, who
       runs which territory, and a lens on the <b>handful of facilities that hold almost everyone</b>. Every panel
       names its source and date. Nothing here is editorial; pick the views worth building for real.</p>
+    <p class="lede" id="relnote" style="margin-top:-8px;color:var(--muted);font-size:14px"></p>
     <div class="totals" id="totals"></div>
   </div>
 
@@ -543,6 +544,14 @@ function hideTip(){tip.style.opacity='0';}
 
 /* header */
 $('#rel').textContent=DATA.release;$('#footrel').textContent=DATA.release;
+(function(){
+  const dates=Object.values(DATA.sources).map(s=>s.asOf).sort();
+  const oldest=dates[0], newest=dates[dates.length-1];
+  const note=oldest===newest
+    ? 'This is when we compiled and published the release &mdash; every source in it is dated '+oldest+'.'
+    : 'This is when we compiled and published the release, not when the underlying data was collected &mdash; sources here range from '+oldest+' to '+newest+'. Each panel below cites which source(s) it draws on and their exact dates.';
+  $('#relnote').innerHTML=note;
+})();
 $('#ncourt').textContent=DATA.courts.length;$('#courtlink').textContent=DATA.coloc.facLinked;
 $('#ncoloc').textContent=DATA.coloc.courtsDetained;
 [['facilities','Detention facilities'],['courts','Immigration courts'],['offices','Field offices']].forEach(([k,l])=>{
