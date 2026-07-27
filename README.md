@@ -5,8 +5,10 @@ releases: county and state maps, field-office coverage, immigration-court locati
 and derived measures of scale and concentration. Facts only — every panel cites its
 source and date.
 
-A single self-contained page (`index.html`): no build step, no external requests,
-no analytics.
+Two self-contained pages (`index.html`, `directory.html`): no external requests, no
+analytics. Each page's data is a single embedded JSON constant, regenerated from a
+detention-system release with `node scripts/build-data.mjs <releaseDir> --apply`; the
+page markup, styling, and logic are otherwise untouched by that step.
 
 ## Sources
 
