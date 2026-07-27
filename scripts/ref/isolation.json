@@ -1,0 +1,3162 @@
+{
+ "note": "Isolation panel: distance from each facility that reports a population to the nearest city of 250,000+ and to the nearest immigration court, with the county setting (metro/micropolitan/rural). Not derived from a data release — the releases carry no coordinates. vintage records which release the facility list came from; the page compares it against the selected release and shows a notice when they differ. Replace this file wholesale when the measure is rebuilt.",
+ "vintage": "2026.07.07",
+ "city": {
+  "summary": {
+   "placed": 196,
+   "far60": 76,
+   "metro": 137,
+   "micro": 29,
+   "rural": 30
+  },
+  "all": [
+   {
+    "nm": "WARD COUNTY JAIL",
+    "st": "ND",
+    "adp": 2,
+    "mi": 442,
+    "co": "Ward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BURLEIGH COUNTY",
+    "st": "ND",
+    "adp": 13,
+    "mi": 362,
+    "co": "Burleigh County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PENNINGTON COUNTY JAIL (SOUTH DAKOTA)",
+    "st": "SD",
+    "adp": 4,
+    "mi": 290,
+    "co": "Meade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CASCADE COUNTY JAIL, MT",
+    "st": "MT",
+    "adp": 4,
+    "mi": 283,
+    "co": "Cascade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GRAND FORKS COUNTY CORRECTIONAL FACILITY",
+    "st": "ND",
+    "adp": 20,
+    "mi": 271,
+    "co": "Grand Forks County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LAWRENCE COUNTY",
+    "st": "SD",
+    "adp": 11,
+    "mi": 265,
+    "co": "Lawrence County",
+    "ru": "micro"
+   },
+   {
+    "nm": "NORTHWEST REGIONAL CORRECTIONS CENTER",
+    "st": "MN",
+    "adp": 14,
+    "mi": 229,
+    "co": "Polk County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHIPPEWA COUNTY SSM",
+    "st": "MI",
+    "adp": 36,
+    "mi": 210,
+    "co": "Chippewa County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MCCOOK DETENTION CENTER",
+    "st": "NE",
+    "adp": 105,
+    "mi": 195,
+    "co": "Frontier County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LINCOLN COUNTY JAIL",
+    "st": "NE",
+    "adp": 33,
+    "mi": 193,
+    "co": "Lincoln County",
+    "ru": "micro"
+   },
+   {
+    "nm": "NATRONA COUNTY JAIL",
+    "st": "WY",
+    "adp": 10,
+    "mi": 173,
+    "co": "Natrona County",
+    "ru": "metro"
+   },
+   {
+    "nm": "JACKSON PARISH CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1197,
+    "mi": 170,
+    "co": "Bienville Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "MINNEHAHA COUNTY JAIL",
+    "st": "SD",
+    "adp": 4,
+    "mi": 167,
+    "co": "Minnehaha County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SWEETWATER COUNTY JAIL",
+    "st": "WY",
+    "adp": 10,
+    "mi": 159,
+    "co": "Sweetwater County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MADISON COUNTY JAIL",
+    "st": "MS",
+    "adp": 8,
+    "mi": 153,
+    "co": "Madison County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NEVADA SOUTHERN DETENTION CENTER",
+    "st": "NV",
+    "adp": 467,
+    "mi": 149,
+    "co": "Nye County",
+    "ru": "micro"
+   },
+   {
+    "nm": "PHELPS COUNTY JAIL (NE)",
+    "st": "NE",
+    "adp": 25,
+    "mi": 148,
+    "co": "Harlan County",
+    "ru": "rural"
+   },
+   {
+    "nm": "RICHWOOD CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1039,
+    "mi": 148,
+    "co": "Ouachita Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "JEFFERSON COUNTY JAIL",
+    "st": "ID",
+    "adp": 7,
+    "mi": 147,
+    "co": "Bonneville County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHWEST STATE CORRECTIONAL CENTER",
+    "st": "VT",
+    "adp": 10,
+    "mi": 143,
+    "co": "Franklin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "EDEN DETENTION CTR",
+    "st": "TX",
+    "adp": 534,
+    "mi": 140,
+    "co": "Concho County",
+    "ru": "rural"
+   },
+   {
+    "nm": "MILLER COUNTY JAIL",
+    "st": "AR",
+    "adp": 5,
+    "mi": 135,
+    "co": "Miller County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WINN CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1565,
+    "mi": 133,
+    "co": "Winn Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "BLUEBONNET DETENTION FACILITY",
+    "st": "TX",
+    "adp": 1011,
+    "mi": 127,
+    "co": "Jones County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CROW WING COUNTY JAIL",
+    "st": "MN",
+    "adp": 22,
+    "mi": 127,
+    "co": "Cass County",
+    "ru": "micro"
+   },
+   {
+    "nm": "CHITTENDEN REGIONAL CORRECTIONAL FACILITY",
+    "st": "VT",
+    "adp": 4,
+    "mi": 127,
+    "co": "Chittenden County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MUSCATINE COUNTY JAIL",
+    "st": "IA",
+    "adp": 16,
+    "mi": 124,
+    "co": "Louisa County",
+    "ru": "rural"
+   },
+   {
+    "nm": "VAL VERDE CORRECTIONAL FACILITY",
+    "st": "TX",
+    "adp": 3,
+    "mi": 113,
+    "co": "Edwards County",
+    "ru": "rural"
+   },
+   {
+    "nm": "MINICASSIA DETENTION CENTER",
+    "st": "ID",
+    "adp": 3,
+    "mi": 112,
+    "co": "Cassia County",
+    "ru": "micro"
+   },
+   {
+    "nm": "WASHINGTON COUNTY JAIL (PURGATORY CORRECTIONAL FACILITY)",
+    "st": "UT",
+    "adp": 12,
+    "mi": 111,
+    "co": "Washington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "STEWART DETENTION CENTER",
+    "st": "GA",
+    "adp": 2026,
+    "mi": 107,
+    "co": "Quitman County",
+    "ru": "micro"
+   },
+   {
+    "nm": "LINN COUNTY JAIL",
+    "st": "IA",
+    "adp": 43,
+    "mi": 105,
+    "co": "Linn County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DOUGLAS COUNTY",
+    "st": "WI",
+    "adp": 27,
+    "mi": 103,
+    "co": "Douglas County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CENTRAL LOUISIANA ICE PROCESSING CENTER (CLIPC)",
+    "st": "LA",
+    "adp": 1197,
+    "mi": 101,
+    "co": "LaSalle Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "SIOUX COUNTY JAIL",
+    "st": "IA",
+    "adp": 12,
+    "mi": 100,
+    "co": "Plymouth County",
+    "ru": "micro"
+   },
+   {
+    "nm": "ALEXANDRIA STAGING FACILITY",
+    "st": "LA",
+    "adp": 406,
+    "mi": 97,
+    "co": "Rapides Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "ALLEN PARISH PUBLIC SAFETY COMPLEX",
+    "st": "LA",
+    "adp": 139,
+    "mi": 96,
+    "co": "Allen Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "HALL COUNTY DEPARTMENT OF CORRECTIONS",
+    "st": "NE",
+    "adp": 12,
+    "mi": 95,
+    "co": "Hall County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WALTON COUNTY JAIL",
+    "st": "FL",
+    "adp": 28,
+    "mi": 93,
+    "co": "Holmes County",
+    "ru": "rural"
+   },
+   {
+    "nm": "PHELPS COUNTY JAIL (MO)",
+    "st": "MO",
+    "adp": 14,
+    "mi": 92,
+    "co": "Dent County",
+    "ru": "rural"
+   },
+   {
+    "nm": "SAN LUIS REGIONAL DETENTION CENTER",
+    "st": "AZ",
+    "adp": 282,
+    "mi": 91,
+    "co": "Yuma County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HOPKINS COUNTY JAIL",
+    "st": "KY",
+    "adp": 172,
+    "mi": 90,
+    "co": "Hopkins County",
+    "ru": "micro"
+   },
+   {
+    "nm": "SCOTT COUNTY DET. FACILITY",
+    "st": "IA",
+    "adp": 2,
+    "mi": 89,
+    "co": "Scott County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DAVIESS COUNTY DETENTION",
+    "st": "KY",
+    "adp": 40,
+    "mi": 84,
+    "co": "Daviess County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SOUTH LOUISIANA ICE PROCESSING CENTER",
+    "st": "LA",
+    "adp": 965,
+    "mi": 80,
+    "co": "Acadia Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "WESTERN VIRGINIA REGIONAL JAIL",
+    "st": "VA",
+    "adp": 2,
+    "mi": 80,
+    "co": "Roanoke County",
+    "ru": "metro"
+   },
+   {
+    "nm": "IRWIN COUNTY DETENTION CENTER",
+    "st": "GA",
+    "adp": 167,
+    "mi": 79,
+    "co": "Worth County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PINE PRAIRIE ICE PROCESSING CENTER",
+    "st": "LA",
+    "adp": 864,
+    "mi": 79,
+    "co": "Evangeline Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "DAKOTA COUNTY JAIL",
+    "st": "NE",
+    "adp": 31,
+    "mi": 78,
+    "co": "Dakota County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CIBOLA COUNTY CORRECTIONAL CENTER",
+    "st": "NM",
+    "adp": 235,
+    "mi": 76,
+    "co": "Cibola County",
+    "ru": "rural"
+   },
+   {
+    "nm": "WOODBURY COUNTY JAIL",
+    "st": "IA",
+    "adp": 64,
+    "mi": 76,
+    "co": "Woodbury County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KANDIYOHI COUNTY JAIL",
+    "st": "MN",
+    "adp": 106,
+    "mi": 75,
+    "co": "Kandiyohi County",
+    "ru": "micro"
+   },
+   {
+    "nm": "BERLIN FED. CORR. INST.",
+    "st": "NH",
+    "adp": 179,
+    "mi": 73,
+    "co": "Coos County",
+    "ru": "rural"
+   },
+   {
+    "nm": "CLINTON COUNTY CORRECTIONAL FACILITY",
+    "st": "PA",
+    "adp": 92,
+    "mi": 73,
+    "co": "Clinton County",
+    "ru": "micro"
+   },
+   {
+    "nm": "LAUREL COUNTY CORRECTIONAL CENTER",
+    "st": "KY",
+    "adp": 1,
+    "mi": 73,
+    "co": "Clay County",
+    "ru": "micro"
+   },
+   {
+    "nm": "PICKENS COUNTY DETENTION CENTER",
+    "st": "AL",
+    "adp": 44,
+    "mi": 72,
+    "co": "Pickens County",
+    "ru": "metro"
+   },
+   {
+    "nm": "UINTA COUNTY JAIL",
+    "st": "WY",
+    "adp": 27,
+    "mi": 71,
+    "co": "Uinta County",
+    "ru": "micro"
+   },
+   {
+    "nm": "FREEBORN COUNTY ADULT DETENTION CENTER",
+    "st": "MN",
+    "adp": 68,
+    "mi": 70,
+    "co": "Freeborn County",
+    "ru": "micro"
+   },
+   {
+    "nm": "RIVER CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 556,
+    "mi": 70,
+    "co": "Concordia Parish",
+    "ru": "micro"
+   },
+   {
+    "nm": "ADAMS COUNTY CORRECTIONAL CENTER",
+    "st": "MS",
+    "adp": 2124,
+    "mi": 68,
+    "co": "Adams County",
+    "ru": "micro"
+   },
+   {
+    "nm": "NORTH LAKE CORRECTIONAL FACILITY",
+    "st": "MI",
+    "adp": 1410,
+    "mi": 68,
+    "co": "Lake County",
+    "ru": "rural"
+   },
+   {
+    "nm": "NEW HANOVER COUNTY JAIL",
+    "st": "NC",
+    "adp": 4,
+    "mi": 68,
+    "co": "New Hanover County",
+    "ru": "metro"
+   },
+   {
+    "nm": "OZARK COUNTY SHERIFF'S OFFICE",
+    "st": "MO",
+    "adp": 22,
+    "mi": 65,
+    "co": "Ozark County",
+    "ru": "rural"
+   },
+   {
+    "nm": "TOOELE COUNTY JAIL",
+    "st": "UT",
+    "adp": 9,
+    "mi": 65,
+    "co": "Tooele County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHASE COUNTY JAIL",
+    "st": "KS",
+    "adp": 116,
+    "mi": 64,
+    "co": "Chase County",
+    "ru": "micro"
+   },
+   {
+    "nm": "HARDIN COUNTY JAIL",
+    "st": "IA",
+    "adp": 44,
+    "mi": 64,
+    "co": "Grundy County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHRISTIAN COUNTY JAIL",
+    "st": "KY",
+    "adp": 110,
+    "mi": 63,
+    "co": "Christian County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FOLKSTON ANNEX IPC",
+    "st": "GA",
+    "adp": 277,
+    "mi": 63,
+    "co": "Brantley County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FOLKSTON D RAY ICE PROCESSING CTR",
+    "st": "GA",
+    "adp": 1104,
+    "mi": 63,
+    "co": "Brantley County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DIAMONDBACK CORR FACILITY",
+    "st": "OK",
+    "adp": 299,
+    "mi": 62,
+    "co": "Blaine County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LAFAYETTE PARISH CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 3,
+    "mi": 62,
+    "co": "Lafayette Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROOME COUNTY JAIL",
+    "st": "NY",
+    "adp": 40,
+    "mi": 62,
+    "co": "Broome County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KAY CO JUSTICE FACILITY",
+    "st": "OK",
+    "adp": 154,
+    "mi": 62,
+    "co": "Kay County",
+    "ru": "micro"
+   },
+   {
+    "nm": "ETOWAH COUNTY JAIL",
+    "st": "AL",
+    "adp": 83,
+    "mi": 61,
+    "co": "Cherokee County",
+    "ru": "rural"
+   },
+   {
+    "nm": "IMPERIAL REGIONAL DETENTION FACILITY",
+    "st": "CA",
+    "adp": 658,
+    "mi": 61,
+    "co": "Imperial County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MOSHANNON VALLEY PROCESSING CENTER",
+    "st": "PA",
+    "adp": 1650,
+    "mi": 60,
+    "co": "Centre County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLAY COUNTY JUSTICE CENTER",
+    "st": "IN",
+    "adp": 245,
+    "mi": 58,
+    "co": "Clay County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LARAMIE COUNTY JAIL",
+    "st": "WY",
+    "adp": 4,
+    "mi": 55,
+    "co": "Laramie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DILLEY IMMIGRATION PROCESSING CENTER",
+    "st": "TX",
+    "adp": 567,
+    "mi": 54,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "DILLEY PROCESSING SINGLE ADULT FEMALE",
+    "st": "TX",
+    "adp": 223,
+    "mi": 54,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "SOUTH TEXAS ICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 1741,
+    "mi": 54,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "FARMVILLE DETENTION CENTER",
+    "st": "VA",
+    "adp": 688,
+    "mi": 53,
+    "co": "Buckingham County",
+    "ru": "rural"
+   },
+   {
+    "nm": "OTERO COUNTY PROCESSING CENTER",
+    "st": "NM",
+    "adp": 875,
+    "mi": 53,
+    "co": "Doña Ana County",
+    "ru": "metro"
+   },
+   {
+    "nm": "IAH SECURE ADULT DETENTION FACILITY (POLK)",
+    "st": "TX",
+    "adp": 870,
+    "mi": 52,
+    "co": "Polk County",
+    "ru": "rural"
+   },
+   {
+    "nm": "GRAYSON COUNTY JAIL",
+    "st": "KY",
+    "adp": 156,
+    "mi": 51,
+    "co": "Breckinridge County",
+    "ru": "rural"
+   },
+   {
+    "nm": "ALLEGANY COUNTY JAIL",
+    "st": "NY",
+    "adp": 6,
+    "mi": 50,
+    "co": "Allegany County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LIBERTY COUNTY JAIL",
+    "st": "FL",
+    "adp": 9,
+    "mi": 50,
+    "co": "Franklin County",
+    "ru": "rural"
+   },
+   {
+    "nm": "MIAMI CORRECTIONAL CENTER",
+    "st": "IN",
+    "adp": 457,
+    "mi": 48,
+    "co": "Miami County",
+    "ru": "micro"
+   },
+   {
+    "nm": "GLADES COUNTY DETENTION CENTER",
+    "st": "FL",
+    "adp": 472,
+    "mi": 47,
+    "co": "Glades County",
+    "ru": "micro"
+   },
+   {
+    "nm": "SENECA COUNTY JAIL",
+    "st": "OH",
+    "adp": 60,
+    "mi": 44,
+    "co": "Seneca County",
+    "ru": "micro"
+   },
+   {
+    "nm": "TULSA COUNTY JAIL (DAVID L. MOSS JUSTICE CTR)",
+    "st": "OK",
+    "adp": 33,
+    "mi": 44,
+    "co": "Osage County",
+    "ru": "metro"
+   },
+   {
+    "nm": "STE. GENEVIEVE COUNTY SHERIFF/JAIL",
+    "st": "MO",
+    "adp": 127,
+    "mi": 43,
+    "co": "Ste. Genevieve County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LA SALLE COUNTY REGIONAL DETENTION CENTER",
+    "st": "TX",
+    "adp": 213,
+    "mi": 42,
+    "co": "La Salle County",
+    "ru": "rural"
+   },
+   {
+    "nm": "CAMBRIA COUNTY PRISON",
+    "st": "PA",
+    "adp": 39,
+    "mi": 41,
+    "co": "Cambria County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LEWISBURG US PENITENTIARY",
+    "st": "PA",
+    "adp": 62,
+    "mi": 40,
+    "co": "Union County",
+    "ru": "micro"
+   },
+   {
+    "nm": "FULTON CO JAIL INDIANA",
+    "st": "IN",
+    "adp": 7,
+    "mi": 39,
+    "co": "Fulton County",
+    "ru": "rural"
+   },
+   {
+    "nm": "ELMORE COUNTY JAIL",
+    "st": "ID",
+    "adp": 9,
+    "mi": 39,
+    "co": "Elmore County",
+    "ru": "micro"
+   },
+   {
+    "nm": "KARNES COUNTY CORRECTIONAL CENTER",
+    "st": "TX",
+    "adp": 2,
+    "mi": 39,
+    "co": "Atascosa County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PIKE COUNTY JAIL",
+    "st": "PA",
+    "adp": 238,
+    "mi": 38,
+    "co": "Pike County",
+    "ru": "micro"
+   },
+   {
+    "nm": "BAKER COUNTY SHERIFF DEPT.",
+    "st": "FL",
+    "adp": 278,
+    "mi": 36,
+    "co": "Baker County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BAKER CORRECTIONAL INSTITUTION",
+    "st": "FL",
+    "adp": 889,
+    "mi": 36,
+    "co": "Baker County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHEAST OHIO CORRECTIONAL CENTER",
+    "st": "OH",
+    "adp": 197,
+    "mi": 34,
+    "co": "Mahoning County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DODGE COUNTY JAIL",
+    "st": "WI",
+    "adp": 104,
+    "mi": 34,
+    "co": "Dodge County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MAHONING COUNTY JAIL",
+    "st": "OH",
+    "adp": 93,
+    "mi": 34,
+    "co": "Mahoning County",
+    "ru": "metro"
+   },
+   {
+    "nm": "OLDHAM COUNTY DETENTION CENTER",
+    "st": "KY",
+    "adp": 133,
+    "mi": 34,
+    "co": "Henry County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CAROLINE DETENTION FACILITY",
+    "st": "VA",
+    "adp": 344,
+    "mi": 33,
+    "co": "Caroline County",
+    "ru": "rural"
+   },
+   {
+    "nm": "POTTAWATTAMIE COUNTY JAIL",
+    "st": "IA",
+    "adp": 30,
+    "mi": 32,
+    "co": "Pottawattamie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PLYMOUTH COUNTY CORRECTIONAL FACILITY",
+    "st": "MA",
+    "adp": 493,
+    "mi": 31,
+    "co": "Barnstable County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LOUISIANA ICE PROCESSING",
+    "st": "LA",
+    "adp": 182,
+    "mi": 30,
+    "co": "West Feliciana Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "NIAGARA COUNTY JAIL",
+    "st": "NY",
+    "adp": 9,
+    "mi": 30,
+    "co": "Niagara County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLAGLER COUNTY JAIL",
+    "st": "FL",
+    "adp": 25,
+    "mi": 29,
+    "co": "Flagler County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CIMMARRON CORR FACILITY",
+    "st": "OK",
+    "adp": 590,
+    "mi": 28,
+    "co": "Creek County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SAUK COUNTY SHERIFF",
+    "st": "WI",
+    "adp": 13,
+    "mi": 28,
+    "co": "Columbia County",
+    "ru": "metro"
+   },
+   {
+    "nm": "COASTAL BEND DETENTION FACILITY",
+    "st": "TX",
+    "adp": 54,
+    "mi": 28,
+    "co": "Jim Wells County",
+    "ru": "micro"
+   },
+   {
+    "nm": "HANCOCK COUNTY PUBLIC SAFETY COMPLEX",
+    "st": "MS",
+    "adp": 26,
+    "mi": 28,
+    "co": "Hancock County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WESTERN TENNESSEE DETENTION FACILITY",
+    "st": "TN",
+    "adp": 324,
+    "mi": 28,
+    "co": "Fayette County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BUFFALO SERVICE PROCESSING CENTER",
+    "st": "NY",
+    "adp": 737,
+    "mi": 27,
+    "co": "Genesee County",
+    "ru": "micro"
+   },
+   {
+    "nm": "CALHOUN COUNTY CORRECTIONAL CENTER",
+    "st": "MI",
+    "adp": 178,
+    "mi": 27,
+    "co": "Calhoun County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CASS COUNTY JAIL",
+    "st": "NE",
+    "adp": 15,
+    "mi": 27,
+    "co": "Cass County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PRAIRIELAND DETENTION CENTER",
+    "st": "TX",
+    "adp": 935,
+    "mi": 27,
+    "co": "Johnson County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LOGAN COUNTY JAIL",
+    "st": "OK",
+    "adp": 5,
+    "mi": 26,
+    "co": "Logan County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LIMESTONE COUNTY DETENTION CENTER",
+    "st": "TX",
+    "adp": 257,
+    "mi": 26,
+    "co": "Falls County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIDWEST REGIONAL RECEPTION CENTER",
+    "st": "KS",
+    "adp": 7,
+    "mi": 25,
+    "co": "Leavenworth County",
+    "ru": "metro"
+   },
+   {
+    "nm": "EL VALLE DETENTION FACILITY",
+    "st": "TX",
+    "adp": 923,
+    "mi": 25,
+    "co": "Willacy County",
+    "ru": "micro"
+   },
+   {
+    "nm": "GEAUGA COUNTY JAIL",
+    "st": "OH",
+    "adp": 20,
+    "mi": 25,
+    "co": "Geauga County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CORR. CTR OF NORTHWEST OHIO",
+    "st": "OH",
+    "adp": 78,
+    "mi": 24,
+    "co": "Fulton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "RIVERSIDE REGIONAL JAIL",
+    "st": "VA",
+    "adp": 74,
+    "mi": 24,
+    "co": "Prince George County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLINTON COUNTY JAIL",
+    "st": "IN",
+    "adp": 28,
+    "mi": 22,
+    "co": "Boone County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MONROE COUNTY DETENTION-DORM",
+    "st": "MI",
+    "adp": 122,
+    "mi": 22,
+    "co": "Monroe County",
+    "ru": "metro"
+   },
+   {
+    "nm": "STRAFFORD COUNTY CORRECTIONS",
+    "st": "NH",
+    "adp": 138,
+    "mi": 22,
+    "co": "Strafford County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLOYD COUNTY JAIL",
+    "st": "GA",
+    "adp": 1,
+    "mi": 21,
+    "co": "Bartow County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MARTIN COUNTY JAIL",
+    "st": "FL",
+    "adp": 6,
+    "mi": 21,
+    "co": "Martin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CAMPBELL CO DET CTR",
+    "st": "KY",
+    "adp": 142,
+    "mi": 20,
+    "co": "Campbell County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLARK COUNTY JAIL (IN)",
+    "st": "ID",
+    "adp": 90,
+    "mi": 20,
+    "co": "Clark County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ST. CLAIR COUNTY JAIL",
+    "st": "MI",
+    "adp": 53,
+    "mi": 20,
+    "co": "St. Clair County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KENTON COUNTY JAIL",
+    "st": "KY",
+    "adp": 118,
+    "mi": 19,
+    "co": "Kenton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BOONE COUNTY JAIL",
+    "st": "KY",
+    "adp": 206,
+    "mi": 18,
+    "co": "Boone County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NELSON COLEMAN CORRECTION",
+    "st": "LA",
+    "adp": 3,
+    "mi": 14,
+    "co": "St. Charles Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "SARPY COUNTY JAIL",
+    "st": "NE",
+    "adp": 20,
+    "mi": 13,
+    "co": "Sarpy County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ADELANTO ICE PROCESSING CENTER",
+    "st": "CA",
+    "adp": 1733,
+    "mi": 0,
+    "co": "Los Angeles County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BALDWIN COUNTY CORRECTIONAL CENTER",
+    "st": "AL",
+    "adp": 19,
+    "mi": 0,
+    "co": "Baldwin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DESERT VIEW ANNEX",
+    "st": "CA",
+    "adp": 426,
+    "mi": 0,
+    "co": "Los Angeles County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FCI ATLANTA",
+    "st": "GA",
+    "adp": 106,
+    "mi": 0,
+    "co": "DeKalb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLORIDA SOFT-SIDED FACILITY",
+    "st": "FL",
+    "adp": 1383,
+    "mi": 0,
+    "co": "Collier County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GOLDEN STATE ANNEX",
+    "st": "CA",
+    "adp": 603,
+    "mi": 0,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ST. LUCIE COUNTY JAIL",
+    "st": "FL",
+    "adp": 1,
+    "mi": 0,
+    "co": "St. Lucie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WASHOE COUNTY JAIL",
+    "st": "NV",
+    "adp": 49,
+    "mi": 0,
+    "co": "Washoe County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WEBB COUNTY DETENTION CENTER (CCA)",
+    "st": "TX",
+    "adp": 422,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROOKLYN MDC",
+    "st": "NY",
+    "adp": 140,
+    "mi": 0,
+    "co": "Kings County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HONOLULU FEDERAL DETENTION CENTER",
+    "st": "HI",
+    "adp": 74,
+    "mi": 0,
+    "co": "Honolulu County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIAMI FEDERAL DETENTION",
+    "st": "FL",
+    "adp": 460,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROWARD COUNTY JAIL",
+    "st": "FL",
+    "adp": 3,
+    "mi": 0,
+    "co": "Broward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BUTLER COUNTY JAIL",
+    "st": "OH",
+    "adp": 359,
+    "mi": 0,
+    "co": "Butler County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MESA VERDE ICE PROCESSING CENTER",
+    "st": "CA",
+    "adp": 361,
+    "mi": 0,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CALIFORNIA CITY IMMIGRATION PROCESSING CENTER",
+    "st": "CA",
+    "adp": 1304,
+    "mi": 0,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "T DON HUTTO DETENTION CENTER",
+    "st": "TX",
+    "adp": 446,
+    "mi": 0,
+    "co": "Travis County",
+    "ru": "metro"
+   },
+   {
+    "nm": "OTAY MESA DETENTION CENTER",
+    "st": "CA",
+    "adp": 1380,
+    "mi": 0,
+    "co": "San Diego County",
+    "ru": "metro"
+   },
+   {
+    "nm": "COLLIER COUNTY NAPLES JAIL CENTER",
+    "st": "FL",
+    "adp": 42,
+    "mi": 0,
+    "co": "Collier County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHWEST ICE PROCESSSING CENTER",
+    "st": "WA",
+    "adp": 1289,
+    "mi": 0,
+    "co": "Pierce County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DAVIS COUNTY",
+    "st": "UT",
+    "adp": 5,
+    "mi": 0,
+    "co": "Davis County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DENVER CONTRACT DETENTION FACILITY",
+    "st": "CO",
+    "adp": 1260,
+    "mi": 0,
+    "co": "Adams County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DELANEY HALL DETENTION FACILITY",
+    "st": "NJ",
+    "adp": 891,
+    "mi": 0,
+    "co": "Essex County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ELOY FEDERAL CONTRACT FACILITY",
+    "st": "AZ",
+    "adp": 1330,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "EAST HIDALGO DETENTION CENTER",
+    "st": "TX",
+    "adp": 3,
+    "mi": 0,
+    "co": "Hidalgo County",
+    "ru": "metro"
+   },
+   {
+    "nm": "EL PASO SERVICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 800,
+    "mi": 0,
+    "co": "El Paso County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ELIZABETH CONTRACT DETENTION FACILITY",
+    "st": "NJ",
+    "adp": 302,
+    "mi": 0,
+    "co": "Essex County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLORENCE SERVICE PROCESSING CENTER",
+    "st": "AZ",
+    "adp": 328,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CCA, FLORENCE CORRECTIONAL CENTER",
+    "st": "AZ",
+    "adp": 518,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GREENE COUNTY JAIL",
+    "st": "MO",
+    "adp": 270,
+    "mi": 0,
+    "co": "Greene County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HENDERSON DETENTION",
+    "st": "NV",
+    "adp": 89,
+    "mi": 0,
+    "co": "Clark County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HOUSTON CONTRACT DETENTION FACILITY",
+    "st": "TX",
+    "adp": 846,
+    "mi": 0,
+    "co": "Harris County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ERO EL PASO CAMP EAST MONTANA",
+    "st": "TX",
+    "adp": 2505,
+    "mi": 0,
+    "co": "El Paso County",
+    "ru": "metro"
+   },
+   {
+    "nm": "JOE CORLEY PROCESSING CTR",
+    "st": "TX",
+    "adp": 953,
+    "mi": 0,
+    "co": "Montgomery County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KNOX COUNTY DETENTION FACILITY",
+    "st": "TN",
+    "adp": 31,
+    "mi": 0,
+    "co": "Knox County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KROME NORTH SERVICE PROCESSING CENTER",
+    "st": "FL",
+    "adp": 860,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LEXINGTON COUNTY JAIL",
+    "st": "SC",
+    "adp": 6,
+    "mi": 0,
+    "co": "Lexington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LAREDO PROCESSING CENTER",
+    "st": "TX",
+    "adp": 353,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIAMI STAGING FACILITY",
+    "st": "FL",
+    "adp": 20,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MONTGOMERY ICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 1230,
+    "mi": 0,
+    "co": "Montgomery County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ORANGE COUNTY JAIL (FL)",
+    "st": "FL",
+    "adp": 62,
+    "mi": 0,
+    "co": "Orange County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ORANGE COUNTY JAIL (NY)",
+    "st": "NY",
+    "adp": 154,
+    "mi": 0,
+    "co": "Orange County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PORT ISABEL SPC",
+    "st": "TX",
+    "adp": 1231,
+    "mi": 0,
+    "co": "Cameron County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PINELLAS COUNTY JAIL",
+    "st": "FL",
+    "adp": 34,
+    "mi": 0,
+    "co": "Pinellas County",
+    "ru": "metro"
+   },
+   {
+    "nm": "POLK COUNTY JAIL",
+    "st": "IA",
+    "adp": 54,
+    "mi": 0,
+    "co": "Polk County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ROBERT A DEYTON DETENTION FACILITY",
+    "st": "GA",
+    "adp": 18,
+    "mi": 0,
+    "co": "Clayton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "RIO GRANDE DETENTION CENTER",
+    "st": "TX",
+    "adp": 624,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FDC PHILADELPHIA",
+    "st": "PA",
+    "adp": 83,
+    "mi": 0,
+    "co": "Philadelphia County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SHERBURNE COUNTY JAIL",
+    "st": "MN",
+    "adp": 100,
+    "mi": 0,
+    "co": "Anoka County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SALT LAKE COUNTY METRO JAIL",
+    "st": "UT",
+    "adp": 1,
+    "mi": 0,
+    "co": "Salt Lake County",
+    "ru": "metro"
+   },
+   {
+    "nm": "TURNER GUILFORD KNIGHT (TGK) JAIL",
+    "st": "FL",
+    "adp": 10,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "TORRANCE COUNTY DETENTION FACILITY",
+    "st": "NM",
+    "adp": 352,
+    "mi": 0,
+    "co": "Bernalillo County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WASHINGTON COUNTY DETENTION CENTER",
+    "st": "AR",
+    "adp": 5,
+    "mi": 0,
+    "co": "Washington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WAUKESHA COUNTY JAIL",
+    "st": "WI",
+    "adp": 2,
+    "mi": 0,
+    "co": "Waukesha County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROWARD TRANSITIONAL CENTER",
+    "st": "FL",
+    "adp": 685,
+    "mi": 0,
+    "co": "Broward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WEBER COUNTY JAIL",
+    "st": "UT",
+    "adp": 7,
+    "mi": 0,
+    "co": "Weber County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WYATT DETENTION CENTER",
+    "st": "RI",
+    "adp": 110,
+    "mi": 0,
+    "co": "Providence County",
+    "ru": "metro"
+   }
+  ]
+ },
+ "court": {
+  "summary": {
+   "placed": 196,
+   "far60": 114,
+   "metro": 137,
+   "micro": 29,
+   "rural": 30
+  },
+  "all": [
+   {
+    "nm": "CASCADE COUNTY JAIL, MT",
+    "st": "MT",
+    "adp": 4,
+    "mi": 460,
+    "co": "Cascade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WARD COUNTY JAIL",
+    "st": "ND",
+    "adp": 2,
+    "mi": 442,
+    "co": "Ward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BURLEIGH COUNTY",
+    "st": "ND",
+    "adp": 13,
+    "mi": 362,
+    "co": "Burleigh County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PENNINGTON COUNTY JAIL (SOUTH DAKOTA)",
+    "st": "SD",
+    "adp": 4,
+    "mi": 335,
+    "co": "Meade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LAWRENCE COUNTY",
+    "st": "SD",
+    "adp": 11,
+    "mi": 312,
+    "co": "Lawrence County",
+    "ru": "micro"
+   },
+   {
+    "nm": "CHIPPEWA COUNTY SSM",
+    "st": "MI",
+    "adp": 36,
+    "mi": 285,
+    "co": "Chippewa County",
+    "ru": "micro"
+   },
+   {
+    "nm": "GRAND FORKS COUNTY CORRECTIONAL FACILITY",
+    "st": "ND",
+    "adp": 20,
+    "mi": 277,
+    "co": "Grand Forks County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ELMORE COUNTY JAIL",
+    "st": "ID",
+    "adp": 9,
+    "mi": 260,
+    "co": "Elmore County",
+    "ru": "micro"
+   },
+   {
+    "nm": "NATRONA COUNTY JAIL",
+    "st": "WY",
+    "adp": 10,
+    "mi": 242,
+    "co": "Natrona County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHWEST REGIONAL CORRECTIONS CENTER",
+    "st": "MN",
+    "adp": 14,
+    "mi": 237,
+    "co": "Polk County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DIAMONDBACK CORR FACILITY",
+    "st": "OK",
+    "adp": 299,
+    "mi": 235,
+    "co": "Blaine County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LOGAN COUNTY JAIL",
+    "st": "OK",
+    "adp": 5,
+    "mi": 221,
+    "co": "Logan County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CIMMARRON CORR FACILITY",
+    "st": "OK",
+    "adp": 590,
+    "mi": 218,
+    "co": "Creek County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KAY CO JUSTICE FACILITY",
+    "st": "OK",
+    "adp": 154,
+    "mi": 215,
+    "co": "Kay County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MCCOOK DETENTION CENTER",
+    "st": "NE",
+    "adp": 105,
+    "mi": 213,
+    "co": "Frontier County",
+    "ru": "rural"
+   },
+   {
+    "nm": "LAUREL COUNTY CORRECTIONAL CENTER",
+    "st": "KY",
+    "adp": 1,
+    "mi": 209,
+    "co": "Clay County",
+    "ru": "micro"
+   },
+   {
+    "nm": "WASHINGTON COUNTY DETENTION CENTER",
+    "st": "AR",
+    "adp": 5,
+    "mi": 209,
+    "co": "Washington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LINCOLN COUNTY JAIL",
+    "st": "NE",
+    "adp": 33,
+    "mi": 206,
+    "co": "Lincoln County",
+    "ru": "micro"
+   },
+   {
+    "nm": "TULSA COUNTY JAIL (DAVID L. MOSS JUSTICE CTR)",
+    "st": "OK",
+    "adp": 33,
+    "mi": 199,
+    "co": "Osage County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LINN COUNTY JAIL",
+    "st": "IA",
+    "adp": 43,
+    "mi": 195,
+    "co": "Linn County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CIBOLA COUNTY CORRECTIONAL CENTER",
+    "st": "NM",
+    "adp": 235,
+    "mi": 189,
+    "co": "Cibola County",
+    "ru": "rural"
+   },
+   {
+    "nm": "JEFFERSON COUNTY JAIL",
+    "st": "ID",
+    "adp": 7,
+    "mi": 189,
+    "co": "Bonneville County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HOPKINS COUNTY JAIL",
+    "st": "KY",
+    "adp": 172,
+    "mi": 187,
+    "co": "Hopkins County",
+    "ru": "micro"
+   },
+   {
+    "nm": "STE. GENEVIEVE COUNTY SHERIFF/JAIL",
+    "st": "MO",
+    "adp": 127,
+    "mi": 187,
+    "co": "Ste. Genevieve County",
+    "ru": "rural"
+   },
+   {
+    "nm": "TORRANCE COUNTY DETENTION FACILITY",
+    "st": "NM",
+    "adp": 352,
+    "mi": 187,
+    "co": "Bernalillo County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PHELPS COUNTY JAIL (NE)",
+    "st": "NE",
+    "adp": 25,
+    "mi": 186,
+    "co": "Harlan County",
+    "ru": "rural"
+   },
+   {
+    "nm": "FOLKSTON ANNEX IPC",
+    "st": "GA",
+    "adp": 277,
+    "mi": 185,
+    "co": "Brantley County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FOLKSTON D RAY ICE PROCESSING CTR",
+    "st": "GA",
+    "adp": 1104,
+    "mi": 185,
+    "co": "Brantley County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HARDIN COUNTY JAIL",
+    "st": "IA",
+    "adp": 44,
+    "mi": 183,
+    "co": "Grundy County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MUSCATINE COUNTY JAIL",
+    "st": "IA",
+    "adp": 16,
+    "mi": 183,
+    "co": "Louisa County",
+    "ru": "rural"
+   },
+   {
+    "nm": "PHELPS COUNTY JAIL (MO)",
+    "st": "MO",
+    "adp": 14,
+    "mi": 182,
+    "co": "Dent County",
+    "ru": "rural"
+   },
+   {
+    "nm": "NEW HANOVER COUNTY JAIL",
+    "st": "NC",
+    "adp": 4,
+    "mi": 181,
+    "co": "New Hanover County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHWEST STATE CORRECTIONAL CENTER",
+    "st": "VT",
+    "adp": 10,
+    "mi": 181,
+    "co": "Franklin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BLUEBONNET DETENTION FACILITY",
+    "st": "TX",
+    "adp": 1011,
+    "mi": 180,
+    "co": "Jones County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHRISTIAN COUNTY JAIL",
+    "st": "KY",
+    "adp": 110,
+    "mi": 179,
+    "co": "Christian County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WASHOE COUNTY JAIL",
+    "st": "NV",
+    "adp": 49,
+    "mi": 178,
+    "co": "Washoe County",
+    "ru": "metro"
+   },
+   {
+    "nm": "OZARK COUNTY SHERIFF'S OFFICE",
+    "st": "MO",
+    "adp": 22,
+    "mi": 174,
+    "co": "Ozark County",
+    "ru": "rural"
+   },
+   {
+    "nm": "NORTH LAKE CORRECTIONAL FACILITY",
+    "st": "MI",
+    "adp": 1410,
+    "mi": 173,
+    "co": "Lake County",
+    "ru": "rural"
+   },
+   {
+    "nm": "SWEETWATER COUNTY JAIL",
+    "st": "WY",
+    "adp": 10,
+    "mi": 172,
+    "co": "Sweetwater County",
+    "ru": "micro"
+   },
+   {
+    "nm": "PICKENS COUNTY DETENTION CENTER",
+    "st": "AL",
+    "adp": 44,
+    "mi": 168,
+    "co": "Pickens County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MINNEHAHA COUNTY JAIL",
+    "st": "SD",
+    "adp": 4,
+    "mi": 167,
+    "co": "Minnehaha County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHITTENDEN REGIONAL CORRECTIONAL FACILITY",
+    "st": "VT",
+    "adp": 4,
+    "mi": 161,
+    "co": "Chittenden County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KNOX COUNTY DETENTION FACILITY",
+    "st": "TN",
+    "adp": 31,
+    "mi": 156,
+    "co": "Knox County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BERLIN FED. CORR. INST.",
+    "st": "NH",
+    "adp": 179,
+    "mi": 153,
+    "co": "Coos County",
+    "ru": "rural"
+   },
+   {
+    "nm": "EDEN DETENTION CTR",
+    "st": "TX",
+    "adp": 534,
+    "mi": 152,
+    "co": "Concho County",
+    "ru": "rural"
+   },
+   {
+    "nm": "MILLER COUNTY JAIL",
+    "st": "AR",
+    "adp": 5,
+    "mi": 151,
+    "co": "Miller County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DAVIESS COUNTY DETENTION",
+    "st": "KY",
+    "adp": 40,
+    "mi": 150,
+    "co": "Daviess County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NEVADA SOUTHERN DETENTION CENTER",
+    "st": "NV",
+    "adp": 467,
+    "mi": 149,
+    "co": "Nye County",
+    "ru": "micro"
+   },
+   {
+    "nm": "WESTERN VIRGINIA REGIONAL JAIL",
+    "st": "VA",
+    "adp": 2,
+    "mi": 147,
+    "co": "Roanoke County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SCOTT COUNTY DET. FACILITY",
+    "st": "IA",
+    "adp": 2,
+    "mi": 145,
+    "co": "Scott County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CROW WING COUNTY JAIL",
+    "st": "MN",
+    "adp": 22,
+    "mi": 141,
+    "co": "Cass County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MINICASSIA DETENTION CENTER",
+    "st": "ID",
+    "adp": 3,
+    "mi": 141,
+    "co": "Cassia County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MADISON COUNTY JAIL",
+    "st": "MS",
+    "adp": 8,
+    "mi": 140,
+    "co": "Madison County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BALDWIN COUNTY CORRECTIONAL CENTER",
+    "st": "AL",
+    "adp": 19,
+    "mi": 139,
+    "co": "Baldwin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GRAYSON COUNTY JAIL",
+    "st": "KY",
+    "adp": 156,
+    "mi": 139,
+    "co": "Breckinridge County",
+    "ru": "rural"
+   },
+   {
+    "nm": "BAKER COUNTY SHERIFF DEPT.",
+    "st": "FL",
+    "adp": 278,
+    "mi": 138,
+    "co": "Baker County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BAKER CORRECTIONAL INSTITUTION",
+    "st": "FL",
+    "adp": 889,
+    "mi": 138,
+    "co": "Baker County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LIBERTY COUNTY JAIL",
+    "st": "FL",
+    "adp": 9,
+    "mi": 137,
+    "co": "Franklin County",
+    "ru": "rural"
+   },
+   {
+    "nm": "SAUK COUNTY SHERIFF",
+    "st": "WI",
+    "adp": 13,
+    "mi": 136,
+    "co": "Columbia County",
+    "ru": "metro"
+   },
+   {
+    "nm": "POLK COUNTY JAIL",
+    "st": "IA",
+    "adp": 54,
+    "mi": 136,
+    "co": "Polk County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GREENE COUNTY JAIL",
+    "st": "MO",
+    "adp": 270,
+    "mi": 133,
+    "co": "Greene County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CHASE COUNTY JAIL",
+    "st": "KS",
+    "adp": 116,
+    "mi": 130,
+    "co": "Chase County",
+    "ru": "micro"
+   },
+   {
+    "nm": "MOSHANNON VALLEY PROCESSING CENTER",
+    "st": "PA",
+    "adp": 1650,
+    "mi": 127,
+    "co": "Centre County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HALL COUNTY DEPARTMENT OF CORRECTIONS",
+    "st": "NE",
+    "adp": 12,
+    "mi": 125,
+    "co": "Hall County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DOUGLAS COUNTY",
+    "st": "WI",
+    "adp": 27,
+    "mi": 124,
+    "co": "Douglas County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLINTON COUNTY CORRECTIONAL FACILITY",
+    "st": "PA",
+    "adp": 92,
+    "mi": 119,
+    "co": "Clinton County",
+    "ru": "micro"
+   },
+   {
+    "nm": "DODGE COUNTY JAIL",
+    "st": "WI",
+    "adp": 104,
+    "mi": 118,
+    "co": "Dodge County",
+    "ru": "micro"
+   },
+   {
+    "nm": "LEWISBURG US PENITENTIARY",
+    "st": "PA",
+    "adp": 62,
+    "mi": 117,
+    "co": "Union County",
+    "ru": "micro"
+   },
+   {
+    "nm": "RIVERSIDE REGIONAL JAIL",
+    "st": "VA",
+    "adp": 74,
+    "mi": 114,
+    "co": "Prince George County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CAMBRIA COUNTY PRISON",
+    "st": "PA",
+    "adp": 39,
+    "mi": 112,
+    "co": "Cambria County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WASHINGTON COUNTY JAIL (PURGATORY CORRECTIONAL FACILITY)",
+    "st": "UT",
+    "adp": 12,
+    "mi": 111,
+    "co": "Washington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CAMPBELL CO DET CTR",
+    "st": "KY",
+    "adp": 142,
+    "mi": 110,
+    "co": "Campbell County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FARMVILLE DETENTION CENTER",
+    "st": "VA",
+    "adp": 688,
+    "mi": 110,
+    "co": "Buckingham County",
+    "ru": "rural"
+   },
+   {
+    "nm": "OLDHAM COUNTY DETENTION CENTER",
+    "st": "KY",
+    "adp": 133,
+    "mi": 107,
+    "co": "Henry County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LIMESTONE COUNTY DETENTION CENTER",
+    "st": "TX",
+    "adp": 257,
+    "mi": 105,
+    "co": "Falls County",
+    "ru": "metro"
+   },
+   {
+    "nm": "VAL VERDE CORRECTIONAL FACILITY",
+    "st": "TX",
+    "adp": 3,
+    "mi": 105,
+    "co": "Edwards County",
+    "ru": "rural"
+   },
+   {
+    "nm": "KENTON COUNTY JAIL",
+    "st": "KY",
+    "adp": 118,
+    "mi": 104,
+    "co": "Kenton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LARAMIE COUNTY JAIL",
+    "st": "WY",
+    "adp": 4,
+    "mi": 101,
+    "co": "Laramie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MARTIN COUNTY JAIL",
+    "st": "FL",
+    "adp": 6,
+    "mi": 101,
+    "co": "Martin County",
+    "ru": "metro"
+   },
+   {
+    "nm": "GLADES COUNTY DETENTION CENTER",
+    "st": "FL",
+    "adp": 472,
+    "mi": 100,
+    "co": "Glades County",
+    "ru": "micro"
+   },
+   {
+    "nm": "SIOUX COUNTY JAIL",
+    "st": "IA",
+    "adp": 12,
+    "mi": 100,
+    "co": "Plymouth County",
+    "ru": "micro"
+   },
+   {
+    "nm": "LEXINGTON COUNTY JAIL",
+    "st": "SC",
+    "adp": 6,
+    "mi": 96,
+    "co": "Lexington County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ST. LUCIE COUNTY JAIL",
+    "st": "FL",
+    "adp": 1,
+    "mi": 94,
+    "co": "St. Lucie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BOONE COUNTY JAIL",
+    "st": "KY",
+    "adp": 206,
+    "mi": 94,
+    "co": "Boone County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PINELLAS COUNTY JAIL",
+    "st": "FL",
+    "adp": 34,
+    "mi": 94,
+    "co": "Pinellas County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLARK COUNTY JAIL (IN)",
+    "st": "ID",
+    "adp": 90,
+    "mi": 93,
+    "co": "Clark County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FREEBORN COUNTY ADULT DETENTION CENTER",
+    "st": "MN",
+    "adp": 68,
+    "mi": 92,
+    "co": "Freeborn County",
+    "ru": "micro"
+   },
+   {
+    "nm": "FULTON CO JAIL INDIANA",
+    "st": "IN",
+    "adp": 7,
+    "mi": 88,
+    "co": "Fulton County",
+    "ru": "rural"
+   },
+   {
+    "nm": "CALHOUN COUNTY CORRECTIONAL CENTER",
+    "st": "MI",
+    "adp": 178,
+    "mi": 88,
+    "co": "Calhoun County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BUTLER COUNTY JAIL",
+    "st": "OH",
+    "adp": 359,
+    "mi": 87,
+    "co": "Butler County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SAN LUIS REGIONAL DETENTION CENTER",
+    "st": "AZ",
+    "adp": 282,
+    "mi": 86,
+    "co": "Yuma County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WAUKESHA COUNTY JAIL",
+    "st": "WI",
+    "adp": 2,
+    "mi": 85,
+    "co": "Waukesha County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WALTON COUNTY JAIL",
+    "st": "FL",
+    "adp": 28,
+    "mi": 83,
+    "co": "Holmes County",
+    "ru": "rural"
+   },
+   {
+    "nm": "UINTA COUNTY JAIL",
+    "st": "WY",
+    "adp": 27,
+    "mi": 83,
+    "co": "Uinta County",
+    "ru": "micro"
+   },
+   {
+    "nm": "SENECA COUNTY JAIL",
+    "st": "OH",
+    "adp": 60,
+    "mi": 79,
+    "co": "Seneca County",
+    "ru": "micro"
+   },
+   {
+    "nm": "DAKOTA COUNTY JAIL",
+    "st": "NE",
+    "adp": 31,
+    "mi": 78,
+    "co": "Dakota County",
+    "ru": "metro"
+   },
+   {
+    "nm": "COASTAL BEND DETENTION FACILITY",
+    "st": "TX",
+    "adp": 54,
+    "mi": 76,
+    "co": "Jim Wells County",
+    "ru": "micro"
+   },
+   {
+    "nm": "WOODBURY COUNTY JAIL",
+    "st": "IA",
+    "adp": 64,
+    "mi": 76,
+    "co": "Woodbury County",
+    "ru": "metro"
+   },
+   {
+    "nm": "T DON HUTTO DETENTION CENTER",
+    "st": "TX",
+    "adp": 446,
+    "mi": 75,
+    "co": "Travis County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KANDIYOHI COUNTY JAIL",
+    "st": "MN",
+    "adp": 106,
+    "mi": 75,
+    "co": "Kandiyohi County",
+    "ru": "micro"
+   },
+   {
+    "nm": "GOLDEN STATE ANNEX",
+    "st": "CA",
+    "adp": 603,
+    "mi": 74,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MESA VERDE ICE PROCESSING CENTER",
+    "st": "CA",
+    "adp": 361,
+    "mi": 74,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CALIFORNIA CITY IMMIGRATION PROCESSING CENTER",
+    "st": "CA",
+    "adp": 1304,
+    "mi": 74,
+    "co": "Kern County",
+    "ru": "metro"
+   },
+   {
+    "nm": "IRWIN COUNTY DETENTION CENTER",
+    "st": "GA",
+    "adp": 167,
+    "mi": 72,
+    "co": "Worth County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ETOWAH COUNTY JAIL",
+    "st": "AL",
+    "adp": 83,
+    "mi": 70,
+    "co": "Cherokee County",
+    "ru": "rural"
+   },
+   {
+    "nm": "JACKSON PARISH CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1197,
+    "mi": 70,
+    "co": "Bienville Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "MIAMI CORRECTIONAL CENTER",
+    "st": "IN",
+    "adp": 457,
+    "mi": 69,
+    "co": "Miami County",
+    "ru": "micro"
+   },
+   {
+    "nm": "FLAGLER COUNTY JAIL",
+    "st": "FL",
+    "adp": 25,
+    "mi": 66,
+    "co": "Flagler County",
+    "ru": "metro"
+   },
+   {
+    "nm": "TOOELE COUNTY JAIL",
+    "st": "UT",
+    "adp": 9,
+    "mi": 65,
+    "co": "Tooele County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CORR. CTR OF NORTHWEST OHIO",
+    "st": "OH",
+    "adp": 78,
+    "mi": 64,
+    "co": "Fulton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROOME COUNTY JAIL",
+    "st": "NY",
+    "adp": 40,
+    "mi": 62,
+    "co": "Broome County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLORIDA SOFT-SIDED FACILITY",
+    "st": "FL",
+    "adp": 1383,
+    "mi": 60,
+    "co": "Collier County",
+    "ru": "metro"
+   },
+   {
+    "nm": "COLLIER COUNTY NAPLES JAIL CENTER",
+    "st": "FL",
+    "adp": 42,
+    "mi": 60,
+    "co": "Collier County",
+    "ru": "metro"
+   },
+   {
+    "nm": "STRAFFORD COUNTY CORRECTIONS",
+    "st": "NH",
+    "adp": 138,
+    "mi": 60,
+    "co": "Strafford County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLAY COUNTY JUSTICE CENTER",
+    "st": "IN",
+    "adp": 245,
+    "mi": 58,
+    "co": "Clay County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PLYMOUTH COUNTY CORRECTIONAL FACILITY",
+    "st": "MA",
+    "adp": 493,
+    "mi": 58,
+    "co": "Barnstable County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LAFAYETTE PARISH CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 3,
+    "mi": 55,
+    "co": "Lafayette Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "CAROLINE DETENTION FACILITY",
+    "st": "VA",
+    "adp": 344,
+    "mi": 55,
+    "co": "Caroline County",
+    "ru": "rural"
+   },
+   {
+    "nm": "RICHWOOD CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1039,
+    "mi": 55,
+    "co": "Ouachita Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHEAST OHIO CORRECTIONAL CENTER",
+    "st": "OH",
+    "adp": 197,
+    "mi": 54,
+    "co": "Mahoning County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MAHONING COUNTY JAIL",
+    "st": "OH",
+    "adp": 93,
+    "mi": 54,
+    "co": "Mahoning County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ST. CLAIR COUNTY JAIL",
+    "st": "MI",
+    "adp": 53,
+    "mi": 54,
+    "co": "St. Clair County",
+    "ru": "metro"
+   },
+   {
+    "nm": "IAH SECURE ADULT DETENTION FACILITY (POLK)",
+    "st": "TX",
+    "adp": 870,
+    "mi": 52,
+    "co": "Polk County",
+    "ru": "rural"
+   },
+   {
+    "nm": "ALLEGANY COUNTY JAIL",
+    "st": "NY",
+    "adp": 6,
+    "mi": 50,
+    "co": "Allegany County",
+    "ru": "rural"
+   },
+   {
+    "nm": "ADAMS COUNTY CORRECTIONAL CENTER",
+    "st": "MS",
+    "adp": 2124,
+    "mi": 49,
+    "co": "Adams County",
+    "ru": "micro"
+   },
+   {
+    "nm": "EAST HIDALGO DETENTION CENTER",
+    "st": "TX",
+    "adp": 3,
+    "mi": 44,
+    "co": "Hidalgo County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PRAIRIELAND DETENTION CENTER",
+    "st": "TX",
+    "adp": 935,
+    "mi": 44,
+    "co": "Johnson County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WEBER COUNTY JAIL",
+    "st": "UT",
+    "adp": 7,
+    "mi": 41,
+    "co": "Weber County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WYATT DETENTION CENTER",
+    "st": "RI",
+    "adp": 110,
+    "mi": 41,
+    "co": "Providence County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ALEXANDRIA STAGING FACILITY",
+    "st": "LA",
+    "adp": 406,
+    "mi": 40,
+    "co": "Rapides Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIDWEST REGIONAL RECEPTION CENTER",
+    "st": "KS",
+    "adp": 7,
+    "mi": 39,
+    "co": "Leavenworth County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLOYD COUNTY JAIL",
+    "st": "GA",
+    "adp": 1,
+    "mi": 38,
+    "co": "Bartow County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROWARD COUNTY JAIL",
+    "st": "FL",
+    "adp": 3,
+    "mi": 37,
+    "co": "Broward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LA SALLE COUNTY REGIONAL DETENTION CENTER",
+    "st": "TX",
+    "adp": 213,
+    "mi": 37,
+    "co": "La Salle County",
+    "ru": "rural"
+   },
+   {
+    "nm": "BROWARD TRANSITIONAL CENTER",
+    "st": "FL",
+    "adp": 685,
+    "mi": 37,
+    "co": "Broward County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SOUTH LOUISIANA ICE PROCESSING CENTER",
+    "st": "LA",
+    "adp": 965,
+    "mi": 35,
+    "co": "Acadia Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "HANCOCK COUNTY PUBLIC SAFETY COMPLEX",
+    "st": "MS",
+    "adp": 26,
+    "mi": 35,
+    "co": "Hancock County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KARNES COUNTY CORRECTIONAL CENTER",
+    "st": "TX",
+    "adp": 2,
+    "mi": 35,
+    "co": "Atascosa County",
+    "ru": "metro"
+   },
+   {
+    "nm": "RIVER CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 556,
+    "mi": 35,
+    "co": "Concordia Parish",
+    "ru": "micro"
+   },
+   {
+    "nm": "WINN CORRECTIONAL CENTER",
+    "st": "LA",
+    "adp": 1565,
+    "mi": 33,
+    "co": "Winn Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "ORANGE COUNTY JAIL (NY)",
+    "st": "NY",
+    "adp": 154,
+    "mi": 32,
+    "co": "Orange County",
+    "ru": "metro"
+   },
+   {
+    "nm": "POTTAWATTAMIE COUNTY JAIL",
+    "st": "IA",
+    "adp": 30,
+    "mi": 32,
+    "co": "Pottawattamie County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LOUISIANA ICE PROCESSING",
+    "st": "LA",
+    "adp": 182,
+    "mi": 30,
+    "co": "West Feliciana Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "NIAGARA COUNTY JAIL",
+    "st": "NY",
+    "adp": 9,
+    "mi": 30,
+    "co": "Niagara County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PIKE COUNTY JAIL",
+    "st": "PA",
+    "adp": 238,
+    "mi": 30,
+    "co": "Pike County",
+    "ru": "micro"
+   },
+   {
+    "nm": "NELSON COLEMAN CORRECTION",
+    "st": "LA",
+    "adp": 3,
+    "mi": 28,
+    "co": "St. Charles Parish",
+    "ru": "metro"
+   },
+   {
+    "nm": "MONROE COUNTY DETENTION-DORM",
+    "st": "MI",
+    "adp": 122,
+    "mi": 28,
+    "co": "Monroe County",
+    "ru": "metro"
+   },
+   {
+    "nm": "WESTERN TENNESSEE DETENTION FACILITY",
+    "st": "TN",
+    "adp": 324,
+    "mi": 28,
+    "co": "Fayette County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CASS COUNTY JAIL",
+    "st": "NE",
+    "adp": 15,
+    "mi": 27,
+    "co": "Cass County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CLINTON COUNTY JAIL",
+    "st": "IN",
+    "adp": 28,
+    "mi": 26,
+    "co": "Boone County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PINE PRAIRIE ICE PROCESSING CENTER",
+    "st": "LA",
+    "adp": 864,
+    "mi": 26,
+    "co": "Evangeline Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "EL VALLE DETENTION FACILITY",
+    "st": "TX",
+    "adp": 923,
+    "mi": 25,
+    "co": "Willacy County",
+    "ru": "micro"
+   },
+   {
+    "nm": "GEAUGA COUNTY JAIL",
+    "st": "OH",
+    "adp": 20,
+    "mi": 25,
+    "co": "Geauga County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DAVIS COUNTY",
+    "st": "UT",
+    "adp": 5,
+    "mi": 24,
+    "co": "Davis County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SHERBURNE COUNTY JAIL",
+    "st": "MN",
+    "adp": 100,
+    "mi": 22,
+    "co": "Anoka County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ROBERT A DEYTON DETENTION FACILITY",
+    "st": "GA",
+    "adp": 18,
+    "mi": 18,
+    "co": "Clayton County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FCI ATLANTA",
+    "st": "GA",
+    "adp": 106,
+    "mi": 14,
+    "co": "DeKalb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SARPY COUNTY JAIL",
+    "st": "NE",
+    "adp": 20,
+    "mi": 13,
+    "co": "Sarpy County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BROOKLYN MDC",
+    "st": "NY",
+    "adp": 140,
+    "mi": 10,
+    "co": "Kings County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ADELANTO ICE PROCESSING CENTER",
+    "st": "CA",
+    "adp": 1733,
+    "mi": 0,
+    "co": "Los Angeles County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ALLEN PARISH PUBLIC SAFETY COMPLEX",
+    "st": "LA",
+    "adp": 139,
+    "mi": 0,
+    "co": "Allen Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "CENTRAL LOUISIANA ICE PROCESSING CENTER (CLIPC)",
+    "st": "LA",
+    "adp": 1197,
+    "mi": 0,
+    "co": "LaSalle Parish",
+    "ru": "rural"
+   },
+   {
+    "nm": "DESERT VIEW ANNEX",
+    "st": "CA",
+    "adp": 426,
+    "mi": 0,
+    "co": "Los Angeles County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DILLEY IMMIGRATION PROCESSING CENTER",
+    "st": "TX",
+    "adp": 567,
+    "mi": 0,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "DILLEY PROCESSING SINGLE ADULT FEMALE",
+    "st": "TX",
+    "adp": 223,
+    "mi": 0,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "WEBB COUNTY DETENTION CENTER (CCA)",
+    "st": "TX",
+    "adp": 422,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HONOLULU FEDERAL DETENTION CENTER",
+    "st": "HI",
+    "adp": 74,
+    "mi": 0,
+    "co": "Honolulu County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIAMI FEDERAL DETENTION",
+    "st": "FL",
+    "adp": 460,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "BUFFALO SERVICE PROCESSING CENTER",
+    "st": "NY",
+    "adp": 737,
+    "mi": 0,
+    "co": "Genesee County",
+    "ru": "micro"
+   },
+   {
+    "nm": "OTAY MESA DETENTION CENTER",
+    "st": "CA",
+    "adp": 1380,
+    "mi": 0,
+    "co": "San Diego County",
+    "ru": "metro"
+   },
+   {
+    "nm": "NORTHWEST ICE PROCESSSING CENTER",
+    "st": "WA",
+    "adp": 1289,
+    "mi": 0,
+    "co": "Pierce County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DENVER CONTRACT DETENTION FACILITY",
+    "st": "CO",
+    "adp": 1260,
+    "mi": 0,
+    "co": "Adams County",
+    "ru": "metro"
+   },
+   {
+    "nm": "DELANEY HALL DETENTION FACILITY",
+    "st": "NJ",
+    "adp": 891,
+    "mi": 0,
+    "co": "Essex County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ELOY FEDERAL CONTRACT FACILITY",
+    "st": "AZ",
+    "adp": 1330,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "EL PASO SERVICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 800,
+    "mi": 0,
+    "co": "El Paso County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ELIZABETH CONTRACT DETENTION FACILITY",
+    "st": "NJ",
+    "adp": 302,
+    "mi": 0,
+    "co": "Essex County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FLORENCE SERVICE PROCESSING CENTER",
+    "st": "AZ",
+    "adp": 328,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "CCA, FLORENCE CORRECTIONAL CENTER",
+    "st": "AZ",
+    "adp": 518,
+    "mi": 0,
+    "co": "Pinal County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HENDERSON DETENTION",
+    "st": "NV",
+    "adp": 89,
+    "mi": 0,
+    "co": "Clark County",
+    "ru": "metro"
+   },
+   {
+    "nm": "HOUSTON CONTRACT DETENTION FACILITY",
+    "st": "TX",
+    "adp": 846,
+    "mi": 0,
+    "co": "Harris County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ERO EL PASO CAMP EAST MONTANA",
+    "st": "TX",
+    "adp": 2505,
+    "mi": 0,
+    "co": "El Paso County",
+    "ru": "metro"
+   },
+   {
+    "nm": "IMPERIAL REGIONAL DETENTION FACILITY",
+    "st": "CA",
+    "adp": 658,
+    "mi": 0,
+    "co": "Imperial County",
+    "ru": "metro"
+   },
+   {
+    "nm": "JOE CORLEY PROCESSING CTR",
+    "st": "TX",
+    "adp": 953,
+    "mi": 0,
+    "co": "Montgomery County",
+    "ru": "metro"
+   },
+   {
+    "nm": "KROME NORTH SERVICE PROCESSING CENTER",
+    "st": "FL",
+    "adp": 860,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "LAREDO PROCESSING CENTER",
+    "st": "TX",
+    "adp": 353,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MIAMI STAGING FACILITY",
+    "st": "FL",
+    "adp": 20,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   },
+   {
+    "nm": "MONTGOMERY ICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 1230,
+    "mi": 0,
+    "co": "Montgomery County",
+    "ru": "metro"
+   },
+   {
+    "nm": "ORANGE COUNTY JAIL (FL)",
+    "st": "FL",
+    "adp": 62,
+    "mi": 0,
+    "co": "Orange County",
+    "ru": "metro"
+   },
+   {
+    "nm": "OTERO COUNTY PROCESSING CENTER",
+    "st": "NM",
+    "adp": 875,
+    "mi": 0,
+    "co": "Doña Ana County",
+    "ru": "metro"
+   },
+   {
+    "nm": "PORT ISABEL SPC",
+    "st": "TX",
+    "adp": 1231,
+    "mi": 0,
+    "co": "Cameron County",
+    "ru": "metro"
+   },
+   {
+    "nm": "RIO GRANDE DETENTION CENTER",
+    "st": "TX",
+    "adp": 624,
+    "mi": 0,
+    "co": "Webb County",
+    "ru": "metro"
+   },
+   {
+    "nm": "FDC PHILADELPHIA",
+    "st": "PA",
+    "adp": 83,
+    "mi": 0,
+    "co": "Philadelphia County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SALT LAKE COUNTY METRO JAIL",
+    "st": "UT",
+    "adp": 1,
+    "mi": 0,
+    "co": "Salt Lake County",
+    "ru": "metro"
+   },
+   {
+    "nm": "SOUTH TEXAS ICE PROCESSING CENTER",
+    "st": "TX",
+    "adp": 1741,
+    "mi": 0,
+    "co": "Frio County",
+    "ru": "rural"
+   },
+   {
+    "nm": "STEWART DETENTION CENTER",
+    "st": "GA",
+    "adp": 2026,
+    "mi": 0,
+    "co": "Quitman County",
+    "ru": "micro"
+   },
+   {
+    "nm": "TURNER GUILFORD KNIGHT (TGK) JAIL",
+    "st": "FL",
+    "adp": 10,
+    "mi": 0,
+    "co": "Miami-Dade County",
+    "ru": "metro"
+   }
+  ]
+ }
+}

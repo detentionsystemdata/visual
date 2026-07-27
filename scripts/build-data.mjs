@@ -1,18 +1,25 @@
 #!/usr/bin/env node
 /*
- * Rebuilds the data constants embedded in index.html (DATA) and directory.html (D)
- * from a published data release.
+ * Rebuilds the data constants embedded in index.html and directory/index.html
+ * from published data releases. Both pages let the reader switch between the
+ * bundled releases, so each build embeds several of them at once.
  *
- *   node scripts/build-data.mjs <releaseDir> [--apply] [--out <dir>]
+ *   node scripts/build-data.mjs <releasesDir|releaseDir...> [--keep <n>] [--apply] [--out <dir>]
  *
- * <releaseDir> must contain facilities.json, field_offices.json,
+ * Point it at the directory that holds the releases and it bundles the newest
+ * <n> (default 3), newest first — so shipping a new release drops the oldest
+ * with no editing. Individual release directories can also be listed
+ * explicitly. Each must contain facilities.json, field_offices.json,
  * immigration_courts.json and sources.json.
  *
- * Without --apply the script only reports; with --apply it rewrites the single
- * `const DATA={...};` line in index.html and the single `const D={...};` line in
- * directory.html. Nothing else in either file is touched — the map geometry
- * constants (TOPO_US, TOPO_STATES, GEO_TX) and all markup, CSS and page code are
- * left exactly as they are.
+ * Emits, per page, one `const RELEASES={"<tag>":{…}}` line keyed by release tag;
+ * each value has the shape the page reads. Everything that is not derived from a
+ * release stays outside that bundle and is emitted once: the map geometry
+ * (TOPO_US, TOPO_STATES, GEO_TX, untouched by this script) and the isolation
+ * measure (ISOLATION, from scripts/ref/isolation.json).
+ *
+ * Without --apply the script only reports; with --apply it rewrites those single
+ * lines. Nothing else in either file is touched.
  *
  * Static reference data lives in scripts/ref/ (see the note field in each file).
  */
@@ -23,20 +30,45 @@ import { fileURLToPath } from 'node:url';
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(HERE, '..');
 const REF = path.join(HERE, 'ref');
+const KEEP_DEFAULT = 3;
 
 /* ---------- args ---------- */
 const argv = process.argv.slice(2);
 const apply = argv.includes('--apply');
-const outIdx = argv.indexOf('--out');
-const outDir = outIdx >= 0 ? argv[outIdx + 1] : null;
-const releaseDir = argv.find((a, i) => !a.startsWith('--') && argv[i - 1] !== '--out');
-if (!releaseDir) {
-  console.error('usage: node scripts/build-data.mjs <releaseDir> [--apply] [--out <dir>]');
+const flagValue = name => { const i = argv.indexOf(name); return i >= 0 ? argv[i + 1] : null; };
+const outDir = flagValue('--out');
+const keep = Number(flagValue('--keep') || KEEP_DEFAULT);
+const paths = argv.filter((a, i) => !a.startsWith('--') && argv[i - 1] !== '--out' && argv[i - 1] !== '--keep');
+if (!paths.length || !Number.isInteger(keep) || keep < 1) {
+  console.error('usage: node scripts/build-data.mjs <releasesDir|releaseDir...> [--keep <n>] [--apply] [--out <dir>]');
   process.exit(1);
 }
 
 const warnings = [];
-const warn = m => { warnings.push(m); };
+const warn = m => { if (!warnings.includes(m)) warnings.push(m); };
+
+/* A path is a release if it holds the release files; otherwise treat it as the
+   directory the releases live in and take the newest <keep> of them. Release
+   tags sort chronologically as plain strings (YYYY.MM.DD). */
+const isRelease = p => fs.existsSync(path.join(p, 'facilities.json'));
+function resolveReleases(inputs) {
+  const dirs = [];
+  for (const p of inputs) {
+    if (isRelease(p)) { dirs.push(p); continue; }
+    if (!fs.existsSync(p)) { console.error(`no such directory: ${p}`); process.exit(1); }
+    const children = fs.readdirSync(p, { withFileTypes: true })
+      .filter(d => d.isDirectory()).map(d => path.join(p, d.name)).filter(isRelease);
+    if (!children.length) { console.error(`${p} is neither a release nor a directory of releases`); process.exit(1); }
+    dirs.push(...children);
+  }
+  const byTag = new Map();
+  for (const d of dirs) byTag.set(JSON.parse(fs.readFileSync(path.join(d, 'sources.json'), 'utf8')).release, d);
+  const tags = [...byTag.keys()].sort().reverse();
+  const dropped = tags.slice(keep);
+  if (dropped.length) console.log(`bundling the newest ${keep}; leaving out ${dropped.join(', ')}`);
+  return tags.slice(0, keep).map(t => ({ tag: t, dir: byTag.get(t) }));
+}
+const releases = resolveReleases(paths);
 
 /* ---------- helpers ---------- */
 const readJson = p => JSON.parse(fs.readFileSync(p, 'utf8'));
@@ -59,15 +91,19 @@ function stableDesc(arr, keyOf) {
 }
 const countDesc = obj => Object.entries(obj).sort((a, b) => b[1] - a[1]);
 
+const COUNTIES = readJson(path.join(REF, 'counties.json'));
+const PLACEMENT = readJson(path.join(REF, 'placement.json'));
+const ISOLATION = readJson(path.join(REF, 'isolation.json'));
+
+/* Everything below derives one release's two page blobs. */
+function buildRelease(releaseDir) {
+
 /* ---------- inputs ---------- */
 const facilities = readJson(path.join(releaseDir, 'facilities.json')).records;
 const offices = readJson(path.join(releaseDir, 'field_offices.json')).records;
 const courts = readJson(path.join(releaseDir, 'immigration_courts.json')).records;
 const sourcesMeta = readJson(path.join(releaseDir, 'sources.json'));
 const release = sourcesMeta.release;
-
-const COUNTIES = readJson(path.join(REF, 'counties.json'));
-const PLACEMENT = readJson(path.join(REF, 'placement.json'));
 
 /* Display labels for the sources that the pages cite. A source that appears in a
    release but not here is reported and left uncited. */
@@ -107,7 +143,7 @@ for (const set of [facilities, offices, courts]) {
 }
 
 /* ---------- index.html: DATA ---------- */
-function buildDATA(carriedIso) {
+function buildDATA() {
   const byState = {}, adpByStateRaw = {}, countyFac = {}, countyAdpRaw = {};
   for (const f of facilities) {
     const st = soleState(f);
@@ -278,7 +314,6 @@ function buildDATA(carriedIso) {
       h72: { n: h72Recs.length, pct: share(h72Recs) },
       ded: { n: dedRecs.length, pct: share(dedRecs) },
     },
-    iso: carriedIso,
   };
 }
 
@@ -408,6 +443,9 @@ function buildD() {
   return { release, srcinfo, offmap, typeopts, ents };
 }
 
+return { tag: release, DATA: buildDATA(), D: buildD() };
+}
+
 /* ---------- embed ---------- */
 function readConstant(file, name) {
   const text = fs.readFileSync(file, 'utf8');
@@ -426,57 +464,78 @@ function serialize(name, value) {
 
 /* ---------- run ---------- */
 const indexFile = path.join(ROOT, 'index.html');
-const directoryFile = path.join(ROOT, 'directory.html');
+const directoryFile = path.join(ROOT, 'directory', 'index.html');
 
-const prevIndex = readConstant(indexFile, 'DATA');
-const prevDirectory = readConstant(directoryFile, 'D');
+const built = releases.map(r => buildRelease(r.dir));
+const overview = {}, directory = {};
+for (const b of built) { overview[b.tag] = b.DATA; directory[b.tag] = b.D; }
 
-// The isolation panel is not derived from the release: its per-facility distances
-// come from coordinates the release does not carry. It is passed through unchanged.
-const carriedIso = prevIndex.value.iso;
-if (carriedIso) warn(`DATA.iso carried through from the embedded copy (release ${prevIndex.value.release}) — it is not derived from ${release}`);
+// The isolation measure is not derived from a release — the releases carry no
+// coordinates — so it is embedded once, beside the map geometry, and carries the
+// release its facility list came from.
+warn(`ISOLATION is reference data from release ${ISOLATION.vintage}; the page flags it whenever a later release is selected`);
 
-const DATA = buildDATA(carriedIso);
-const D = buildD();
-
-const lineDATA = serialize('DATA', DATA);
-const lineD = serialize('D', D);
+const lines = {
+  index: [serialize('RELEASES', overview), serialize('ISOLATION', ISOLATION)],
+  directory: [serialize('RELEASES', directory)],
+};
 
 // syntax check, the same way the review pages are checked
-for (const [name, line] of [['DATA', lineDATA], ['D', lineD]]) {
-  try { new Function(line); } catch (e) { throw new Error(`${name} does not parse as JavaScript: ${e.message}`); }
+for (const [page, ls] of Object.entries(lines)) {
+  for (const line of ls) {
+    try { new Function(line); } catch (e) { throw new Error(`${page}: emitted constant does not parse as JavaScript: ${e.message}`); }
+  }
 }
 
 const summary = {
-  release,
-  totals: DATA.totals,
-  texasFacilities: DATA.byState.TX,
-  texasAdp: DATA.adpByState.TX,
-  adpTotal: DATA.adpTotal,
-  reportingFacilities: DATA.ranked.length,
-  rosterOnly: DATA.rosterOnly,
-  courtsPlotted: DATA.courts.length,
-  courtsDetained: DATA.coloc.courtsDetained,
-  countiesWithFacility: Object.keys(DATA.countyFac).length,
-  countiesHoldingPeople: Object.keys(DATA.countyADP).length,
-  countiesOnScaleChart: DATA.countyScale.length,
-  directoryEntities: D.ents.length,
+  bundled: built.map(b => b.tag),
+  default: built[0].tag,
+  isolationVintage: ISOLATION.vintage,
+  perRelease: Object.fromEntries(built.map(b => [b.tag, {
+    totals: b.DATA.totals,
+    texasFacilities: b.DATA.byState.TX,
+    texasAdp: b.DATA.adpByState.TX,
+    adpTotal: b.DATA.adpTotal,
+    reportingFacilities: b.DATA.ranked.length,
+    rosterOnly: b.DATA.rosterOnly,
+    courtsPlotted: b.DATA.courts.length,
+    courtsDetained: b.DATA.coloc.courtsDetained,
+    countiesWithFacility: Object.keys(b.DATA.countyFac).length,
+    countiesHoldingPeople: Object.keys(b.DATA.countyADP).length,
+    countiesOnScaleChart: b.DATA.countyScale.length,
+    directoryEntities: b.D.ents.length,
+  }])),
+  embeddedBytes: {
+    'index.html RELEASES': lines.index[0].length,
+    'index.html ISOLATION': lines.index[1].length,
+    'directory/index.html RELEASES': lines.directory[0].length,
+  },
 };
 console.log(JSON.stringify(summary, null, 2));
 
 if (outDir) {
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(path.join(outDir, 'DATA.json'), JSON.stringify(DATA, null, 1) + '\n');
-  fs.writeFileSync(path.join(outDir, 'D.json'), JSON.stringify(D, null, 1) + '\n');
-  console.log(`wrote DATA.json and D.json to ${outDir}`);
+  fs.writeFileSync(path.join(outDir, 'overview.json'), JSON.stringify(overview, null, 1) + '\n');
+  fs.writeFileSync(path.join(outDir, 'directory.json'), JSON.stringify(directory, null, 1) + '\n');
+  console.log(`wrote overview.json and directory.json to ${outDir}`);
 }
 
 if (apply) {
-  fs.writeFileSync(indexFile, prevIndex.text.replace(prevIndex.line, () => lineDATA));
-  fs.writeFileSync(directoryFile, prevDirectory.text.replace(prevDirectory.line, () => lineD));
-  console.log(`updated index.html (${prevIndex.line.length} -> ${lineDATA.length} bytes) and directory.html (${prevDirectory.line.length} -> ${lineD.length} bytes)`);
+  const write = (file, replacements) => {
+    let text = fs.readFileSync(file, 'utf8');
+    for (const line of replacements) {
+      const name = line.slice(6, line.indexOf('='));
+      const prev = readConstant(file, name);
+      text = text.replace(prev.line, () => line);
+      fs.writeFileSync(file, text);
+      console.log(`  ${path.relative(ROOT, file)}: ${name} ${prev.line.length} -> ${line.length} bytes`);
+    }
+  };
+  console.log('applied:');
+  write(indexFile, lines.index);
+  write(directoryFile, lines.directory);
 } else {
-  console.log('dry run — pass --apply to rewrite index.html and directory.html');
+  console.log('dry run — pass --apply to rewrite the pages');
 }
 
 if (warnings.length) {
