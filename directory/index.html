@@ -168,7 +168,7 @@
     <div class="eyebrow">Directory &middot; Detention System Data Release <span id="rel" class="mono"></span></div>
     <h1>The detention system, entry by entry.</h1>
     <p class="lede">Every facility, immigration court, and ICE field office in the registry &mdash; filter and search, then read each entry with its facts and its sources. Values you see are published as-is; each entry's sources are listed and linked at its foot.</p>
-    <p class="lede" id="relnote" style="margin-top:-8px;color:var(--muted);font-size:14px"></p>
+    <p class="lede" id="relnote" style="margin-top:10px;color:var(--muted);font-size:14px"></p>
   </div>
 
   <div class="controls">
@@ -211,7 +211,18 @@ const esc=s=>String(s==null?'':s).replace(/[&<>"]/g,m=>({'&':'&amp;','<':'&lt;',
    RELEASES holds one full directory per bundled release, newest first. D points at
    the one being shown; changing it and calling renderAll() rebuilds the page. */
 const REL_TAGS=Object.keys(RELEASES);
-let D=RELEASES[REL_TAGS[0]];
+function initialRelease(){
+  try{
+    const q=new URLSearchParams(location.search).get('release');
+    if(q&&RELEASES[q])return q;
+  }catch(e){}
+  try{
+    const saved=localStorage.getItem('drrelease');
+    if(saved&&RELEASES[saved])return saved;
+  }catch(e){}
+  return REL_TAGS[0];
+}
+let D=RELEASES[initialRelease()];
 
 function renderHeader(){
   $('#rel').textContent=D.release;$('#footrel').textContent=D.release;
@@ -506,6 +517,12 @@ function buildRelPicker(){
       D=RELEASES[t];
       seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.r===t)));
       renderAll();
+      try{localStorage.setItem('drrelease',t);}catch(e){}
+      try{
+        const u=new URL(location.href);
+        u.searchParams.set('release',t);
+        history.replaceState(null,'',u);
+      }catch(e){}
     });
     seg.append(b);
   });

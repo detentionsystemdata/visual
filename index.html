@@ -284,7 +284,7 @@
     <p class="lede">The same public registry, read many ways &mdash; county maps, a schematic state grid, who
       runs which territory, and a lens on the <b>handful of facilities that hold almost everyone</b>. Every panel
       names its source and date. Nothing here is editorial; pick the views worth building for real.</p>
-    <p class="lede" id="relnote" style="margin-top:-8px;color:var(--muted);font-size:14px"></p>
+    <p class="lede" id="relnote" style="margin-top:10px;color:var(--muted);font-size:14px"></p>
     <div class="totals" id="totals"></div>
   </div>
 
@@ -557,7 +557,18 @@ function hideTip(){tip.style.opacity='0';}
    RELEASES holds one full data blob per bundled release, newest first. DATA points
    at the one being shown; changing it and calling renderAll() redraws the page. */
 const REL_TAGS=Object.keys(RELEASES);
-let DATA=RELEASES[REL_TAGS[0]];
+function initialRelease(){
+  try{
+    const q=new URLSearchParams(location.search).get('release');
+    if(q&&RELEASES[q])return q;
+  }catch(e){}
+  try{
+    const saved=localStorage.getItem('drrelease');
+    if(saved&&RELEASES[saved])return saved;
+  }catch(e){}
+  return REL_TAGS[0];
+}
+let DATA=RELEASES[initialRelease()];
 // the isolation measure carries its own vintage; it is stale whenever a later release is shown
 const isoStale=()=>ISOLATION.vintage!==DATA.release;
 
@@ -1108,6 +1119,12 @@ function buildRelPicker(){
       DATA=RELEASES[t];
       seg.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.r===t)));
       renderAll();
+      try{localStorage.setItem('drrelease',t);}catch(e){}
+      try{
+        const u=new URL(location.href);
+        u.searchParams.set('release',t);
+        history.replaceState(null,'',u);
+      }catch(e){}
     });
     seg.append(b);
   });
