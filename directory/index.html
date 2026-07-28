@@ -54,6 +54,15 @@
   .seg button{border:0;background:transparent;color:var(--ink-2);font:600 12px/1 ui-monospace,monospace;
     padding:5px 9px;border-radius:7px;cursor:pointer;letter-spacing:.02em}
   .seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+  /* second header row — same component as the Overview page's section tabs */
+  nav.subnav{max-width:1120px;margin:0 auto;padding:0 24px 10px;display:flex;align-items:center;gap:2px 14px;flex-wrap:wrap}
+  nav.subnav a{font:600 11.5px/1 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;padding:6px 9px;border-radius:6px}
+  nav.subnav a:hover{background:var(--surface-2);color:var(--ink)}
+  .subnav-links{display:flex;gap:2px;min-width:0;margin-left:auto}
+  .subnav-state{font:600 11.5px/1 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--ink-2);padding:6px 0;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media(max-width:720px){.subnav-links{margin-left:0}}
   .relpick[hidden]{display:none}
   .relpick{display:flex;align-items:center;gap:8px}
   .relpick-lab{font:600 11.5px/1 ui-monospace,monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)}
@@ -66,7 +75,9 @@
   .lede{margin:16px 0 0;max-width:52rem;color:var(--ink-2);font-size:16px}
 
   /* controls — solid so content scrolls cleanly beneath; separation shows only when pinned */
-  .controls{position:sticky;top:50px;z-index:20;background:var(--plane);padding:14px 20px;border-bottom:1px solid transparent;transition:border-color .15s,box-shadow .15s}
+  /* --stick is measured from the header at runtime, so the filter bar keeps sitting
+     just under it however many rows the header grows to */
+  .controls{position:sticky;top:var(--stick,50px);z-index:20;background:var(--plane);padding:14px 20px;border-bottom:1px solid transparent;transition:border-color .15s,box-shadow .15s}
   /* facet rows bleed to the right edge so the horizontal-scroll affordance stays */
   #facets{margin-right:-20px;padding-right:0}
   #facets .fscroll{padding-right:20px}
@@ -140,9 +151,10 @@
   .more:hover{border-color:var(--accent);color:var(--accent)}
   .empty{text-align:center;color:var(--muted);padding:50px 0;font:500 14px ui-monospace,monospace}
 
-  .about{margin-top:44px;padding-top:22px;border-top:1px solid var(--border)}
+  .about{margin-top:44px;padding-top:22px;border-top:1px solid var(--border);scroll-margin-top:calc(var(--stick,50px) + 18px)}
   .about h2{font:600 12px/1 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin:0 0 14px}
   .about .s{font-size:13.5px;color:var(--ink-2);margin:8px 0;line-height:1.55}
+  .about .srcuse{font-size:13px;color:var(--muted);margin-top:2px}
   .about .s b{color:var(--ink)}
   footer{max-width:1120px;margin:0 auto;padding:30px 24px 70px;color:var(--muted);font-size:12.5px}
   footer code{font-family:ui-monospace,monospace;color:var(--ink-2)}
@@ -161,13 +173,17 @@
     <div class="relpick" id="relpick"></div>
     <button class="tgl" id="tgl" aria-label="Toggle light or dark theme">◐ THEME</button>
   </div>
+  <nav class="subnav">
+    <span class="subnav-state" id="filterstate"></span>
+    <span class="subnav-links"><a href="#sources">About the sources</a></span>
+  </nav>
 </header>
 
 <main>
   <div class="hero">
     <div class="eyebrow">Directory &middot; Detention System Data Release <span id="rel" class="mono"></span></div>
     <h1>The detention system, entry by entry.</h1>
-    <p class="lede">Every facility, immigration court, and ICE field office in the registry &mdash; filter and search, then read each entry with its facts and its sources. Values you see are published as-is; each entry's sources are listed and linked at its foot.</p>
+    <p class="lede">Every facility, immigration court, and ICE field office in the registry. Filter and search, then read each entry with its facts and its sources. Find the link to a facility's hours, visiting policy, mail policy and more. Values you see are published as we found them online. Each entry's sources are listed and linked. This lists the data available to the public without added analysis or opinions. <a href="https://linktr.ee/detentionsystemdata">Share our linktree.</a></p>
     <p class="lede" id="relnote" style="margin-top:10px;color:var(--muted);font-size:14px"></p>
   </div>
 
@@ -181,7 +197,6 @@
         <option value="adp">Population (high→low)</option>
       </select></label>
       <button class="clearf" id="clearf" hidden>Clear</button>
-      <span class="count" id="count"></span>
     </div>
     <div id="facets"></div>
   </div>
@@ -189,14 +204,15 @@
   <div class="list" id="list"></div>
   <button class="more" id="more" hidden>Show more</button>
 
-  <div class="about">
+  <div class="about" id="sources">
     <h2>About the sources</h2>
+    <p class="s" id="srcdates" style="color:var(--muted);margin:0 0 14px"></p>
     <div id="aboutsrc"></div>
-    <p class="s" style="color:var(--muted);margin-top:14px">Values are published verbatim from the sources above; where a source's terms don't permit republication, the entry links out instead. Derived measures used elsewhere on this site (co-location hints, source-agreement signal) are our derivations, not source facts.</p>
+    <p class="s" style="color:var(--muted);margin-top:14px">Data is shared verbatim from the cited public, third party sources. Some sources don't allow republication, so their entry links to the source instead. Some measures are derived from the source data (co-location hints, source-agreement signal).</p>
   </div>
 
   <footer>
-    <p>Release <code id="footrel"></code>. Public-good registry of the U.S. immigration detention system &mdash; facts only, per-entry provenance. Self-contained page: no external requests, no analytics.</p>
+    <p>Release <code id="footrel"></code>. Public-good registry of the U.S. immigration detention system. Self-contained page with no external requests or analytics.</p>
   </footer>
 </main>
 
@@ -318,14 +334,47 @@ function setKind(k){
   render();
 }
 
-/* about sources */
+/* about sources
+   What each source contributes is counted from the entries themselves — every value a
+   card shows records which source it came from, so this is the same provenance the
+   cards carry, totalled up. Nothing here is written by hand about a source. */
+const SRC_FIELDS=[['typeSrc','facility type'],['adpSrc','average daily population'],
+  ['capSrc','capacity'],['courtSrc','co-located court'],['statusSrc','operational status'],
+  ['codeSrc','office code'],['addrSrc','address'],['phoneSrc','phone']];
+const KIND_PLURAL={f:'facilities',c:'immigration courts',o:'field offices'};
+function sourceUse(){
+  const per={};
+  D.ents.forEach(e=>{
+    const counted=new Set();
+    SRC_FIELDS.forEach(([key,label])=>{
+      const code=e[key];if(!code)return;
+      const p=per[code]=per[code]||{kinds:{},fields:[]};
+      if(!p.fields.includes(label))p.fields.push(label);
+      if(!counted.has(code)){counted.add(code);p.kinds[e.k]=(p.kinds[e.k]||0)+1;}
+    });
+  });
+  return per;
+}
 function renderAboutSources(){
+  const dates=Object.values(D.srcinfo).map(s=>s.asOf).sort();
+  const oldest=dates[0], newest=dates[dates.length-1];
+  $('#srcdates').innerHTML='Dates below are the dates each source itself reported, as carried by release <b>'+
+    esc(D.release)+'</b> &mdash; '+(oldest===newest?'all of them '+esc(oldest):'they range from '+esc(oldest)+' to '+esc(newest))+'.'+
+    (REL_TAGS.length>1?' Switching release changes them.':'');
+  const use=sourceUse();
   const ab=$('#aboutsrc');ab.innerHTML='';
   Object.entries(D.srcinfo).forEach(([code,s])=>{
     const d=el('div','s');
     d.innerHTML='<b>'+esc(s.name)+'</b> &middot; as of '+esc(s.asOf)+
       ' <span class="lic '+(s.lic==='green'?'green':'amber')+'">'+(s.lic==='green'?'public domain':'attribution')+'</span> &middot; '+
       '<a href="'+esc(s.home)+'" target="_blank" rel="noopener">'+esc(s.home.replace(/^https?:\/\/(www\.)?/,''))+'</a>';
+    const u=use[code];
+    if(u){
+      const kinds=['f','c','o'].filter(k=>u.kinds[k]).map(k=>fmt(u.kinds[k])+' '+KIND_PLURAL[k]);
+      const line=el('div','srcuse');
+      line.textContent='Cited by '+kinds.join(' · ')+' — '+u.fields.join(', ');
+      d.append(line);
+    }
     ab.append(d);
   });
 }
@@ -414,7 +463,7 @@ function buildCard(e){
 }
 
 /* filter + render */
-const listNode=$('#list'), moreBtn=$('#more'), countNode=$('#count');
+const listNode=$('#list'), moreBtn=$('#more');
 let filtered=[], shown=0;const PAGE=50;
 // matches, optionally skipping one facet (for faceted counts)
 function matches(e,skipFacet){
@@ -464,13 +513,25 @@ function anyActive(){
   for(const k in sel)if(sel[k].size)return true;
   return false;
 }
+/* header row 2: says what the reader is currently looking at, off the same
+   filter state and the same result set the count below is built from */
+const stateNode=$('#filterstate');
+function renderFilterState(){
+  const parts=[fKind==='all'?'All entries':KINDS[fKind]];
+  if(fState)parts.push(fState);
+  for(const key in sel)sel[key].forEach(v=>parts.push(v));
+  if(q)parts.push('“'+q+'”');
+  const shownParts=parts.length>4?parts.slice(0,3).concat('+'+(parts.length-3)+' more'):parts;
+  stateNode.textContent=shownParts.join(' · ')+' · '+fmt(filtered.length);
+  stateNode.title=parts.join(' · ')+' · '+fmt(filtered.length)+' '+(filtered.length===1?'entry':'entries');
+}
 function render(){
   fState=stSel.value;fSort=$('#sortSel').value;q=$('#q').value.trim().toLowerCase();
   $('#clearf').hidden=!anyActive();
   buildFacets();
   filtered=D.ents.filter(e=>matches(e)).sort(sortEnts);
   listNode.innerHTML='';shown=0;
-  countNode.textContent=fmt(filtered.length)+' '+(filtered.length===1?'entry':'entries');
+  renderFilterState();
   if(!filtered.length){listNode.append(el('div','empty','No entries match — try clearing a filter.'));moreBtn.hidden=true;return;}
   paint();
 }
@@ -496,10 +557,23 @@ $('#tgl').addEventListener('click',()=>{const cur=document.documentElement.getAt
   document.documentElement.setAttribute('data-theme',next);
   try{localStorage.setItem('drtheme',next);}catch(e){}});
 
-/* separate the sticky filter bar only once it's actually pinned */
+/* park the filter bar just under the header, whatever height the header ends up —
+   two rows here, more if the row wraps on a narrow screen */
+const headerEl=$('header.top');
 const controlsEl=$('.controls');
-const onScroll=()=>controlsEl.classList.toggle('stuck',controlsEl.getBoundingClientRect().top<=51);
-addEventListener('scroll',onScroll,{passive:true});onScroll();
+let stick=50;
+function measureHeader(){
+  const h=Math.round(headerEl.offsetHeight);
+  if(h<=0)return;                 // nothing laid out yet — keep the CSS fallback
+  stick=h-4;
+  document.documentElement.style.setProperty('--stick',stick+'px');
+}
+/* separate the sticky filter bar only once it's actually pinned */
+const onScroll=()=>controlsEl.classList.toggle('stuck',controlsEl.getBoundingClientRect().top<=stick+1);
+addEventListener('scroll',onScroll,{passive:true});
+addEventListener('resize',()=>{measureHeader();onScroll();},{passive:true});
+if(typeof ResizeObserver!=='undefined')new ResizeObserver(()=>{measureHeader();onScroll();}).observe(headerEl);
+measureHeader();onScroll();
 
 /* ---------- release picker ---------- */
 function buildRelPicker(){
